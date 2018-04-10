@@ -1,6 +1,6 @@
 package strategiesdecisions;
 
-// Strategy ID = SN
+// Strategy ID = SN (SAD)
 public class NoAdvertise implements IAdvertiseStrategies {
 
 	@Override

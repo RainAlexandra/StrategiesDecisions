@@ -5,19 +5,19 @@ import java.util.List;
 public class Communication implements ICommunication {
 
 	@Override
-	public void diffuserMessage(String m) {
+	public void diffuserMessage(Message m) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void envoyerMessage(int emetteur, int desitinataire, String m) {
+	public void envoyerMessage(int emetteur, int desitinataire, Message m) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<String> recevoirMessage(int destinataire) {
+	public List<Message> recevoirMessage(int destinataire) {
 		// TODO Auto-generated method stub
 		return null;
 	}

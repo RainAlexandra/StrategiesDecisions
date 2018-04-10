@@ -1,7 +1,12 @@
 package strategiesdecisions;
 
-//Strategy ID = SA2.1
-public class SingleAdInMulticast implements IAdvertiseStrategies {
+/**
+ * @author Rain-Alexandra BEGG
+ * @version 0.1
+ * <b>SA2.1</b> - The agent sends an "Ad" message to a group (can be an 
+ * individual) of agents in the system
+ */
+public class SingleAdInMulticast implements IAdvertiseStrategy {
 
 	@Override
 	public void executer() {

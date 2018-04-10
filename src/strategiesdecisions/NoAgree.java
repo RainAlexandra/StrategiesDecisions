@@ -1,7 +1,12 @@
 package strategiesdecisions;
 
-// Strategy ID = SN (SAG)
-public class NoAgree implements IAgreeStrategies {
+/**
+ * @author Rain-Alexandra BEGG
+ * @version 0.1
+ * <b>SN (SAG)</b> - The agent does not take on any action regardless of 
+ * the communication protocol's state/stage
+ */
+public class NoAgree implements IAgreeStrategy {
 	
 	@Override
 	public void executer(){}

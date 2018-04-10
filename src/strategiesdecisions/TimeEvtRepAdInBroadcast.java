@@ -1,7 +1,7 @@
 package strategiesdecisions;
 
 //Strategy ID = SA1.4
-public class TimeEvtRepeatAdInBroad implements IAdvertiseStrategies {
+public class TimeEvtRepAdInBroadcast implements IAdvertiseStrategies {
 
 	@Override
 	public void executer() {

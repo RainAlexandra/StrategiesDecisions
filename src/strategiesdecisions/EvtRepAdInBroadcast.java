@@ -1,10 +1,10 @@
 package strategiesdecisions;
 
 /**
- * @author Rain-Alexandra BEGG
- * @version 0.1
  * <b>SA1.3</b> - The agent sends an ad to all the agents of the system. 
  * This action is can only be repeated once a particular event "e" occurs
+ * @author Rain-Alexandra BEGG
+ * @version 0.1
  */
 public class EvtRepAdInBroadcast implements IAdvertiseStrategy {
 

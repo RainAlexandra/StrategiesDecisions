@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.replystrategies;
 
 /**
  * <b>SR1.1</b> - Agent "Y" sends a reply to agent "X", having sent 

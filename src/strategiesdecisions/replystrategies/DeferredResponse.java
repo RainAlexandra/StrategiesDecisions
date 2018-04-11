@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.replystrategies;
 
 /**
  * <b>SR3</b> - Agent "Y" does not immediately send a Reply but differs its 

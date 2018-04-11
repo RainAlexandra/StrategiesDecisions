@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.agreestrategies;
 
 /**
  * <b>SAG2.2</b> - Agent "Y" does not immediately accept agent "X"'s binding 

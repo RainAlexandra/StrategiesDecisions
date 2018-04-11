@@ -1,5 +1,7 @@
 package strategiesdecisions;
 
+import strategiesdecisions.adstrategies.IAdvertiseStrategy;
+
 /**
  * <b>SN (SAD)</b> - The agent does not take on any action regardless of 
  * the communication protocol's state/stage

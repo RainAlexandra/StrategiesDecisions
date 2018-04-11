@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.selectstrategies;
 
 /**
  * <b>SSlc1</b> - Agent "X" selects an answer that it considers of interest,

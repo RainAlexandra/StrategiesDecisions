@@ -1,4 +1,7 @@
-package strategiesdecisions;
+package strategiesdecisions.replystrategies;
+
+import strategiesdecisions.Communication;
+import strategiesdecisions.ICommunication;
 
 /**
  * <b>SRP</b> - The Reply strategies depend on whether or not the reply is

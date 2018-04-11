@@ -1,4 +1,7 @@
-package strategiesdecisions;
+package strategiesdecisions.selectstrategies;
+
+import strategiesdecisions.Communication;
+import strategiesdecisions.ICommunication;
 
 /**
  * <b>SSL</b> - Two Select strategies are defined depending on whether or not

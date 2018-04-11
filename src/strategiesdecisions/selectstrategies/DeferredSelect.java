@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.selectstrategies;
 
 /**
  * <b>SSlc2</b> - Agent "X" does not immediately Select a reply. It waits for 

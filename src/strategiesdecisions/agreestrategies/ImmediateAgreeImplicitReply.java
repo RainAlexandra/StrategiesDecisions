@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.agreestrategies;
 
 /**
  * <b>SAG1.1</b> - Agent "Y" accepts the binding request made by agent "X" and

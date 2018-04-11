@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.replystrategies;
 
 /**
  * <b>SR2.3</b> - Agent "Y" sends a Reply to the Ad sent by agent "X", considered to be of interest, 

@@ -1,6 +1,5 @@
 package strategiesdecisions.replystrategies;
 
-import strategiesdecisions.communication.Communication;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -11,6 +10,5 @@ import strategiesdecisions.communication.ICommunication;
  * @version 0.1
  */
 public interface IReplyStrategy {
-	ICommunication comm = new Communication();
-	public void executer();
+	public void executer(ICommunication comm);
 }

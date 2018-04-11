@@ -1,5 +1,7 @@
 package strategiesdecisions.replystrategies;
 
+import strategiesdecisions.communication.ICommunication;
+
 /**
  * <b>SR2.1</b> - Agent "Y" sends a Reply to the Ad sent by agent "X" 
  * considered to be of interest, and then blocks itself while ignoring all 
@@ -10,7 +12,7 @@ package strategiesdecisions.replystrategies;
 public final class BlockingIndvImmReplyNoMemo implements IReplyStrategy {
 
 	@Override
-	public void executer(){
+	public void executer(ICommunication comm){
 		System.out.println("blocking-Targeted-Immediate-Response-NMemorization");
 	}
 }

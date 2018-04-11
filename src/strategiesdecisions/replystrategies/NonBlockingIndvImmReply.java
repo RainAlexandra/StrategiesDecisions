@@ -1,5 +1,9 @@
 package strategiesdecisions.replystrategies;
 
+import strategiesdecisions.communication.ICommunication;
+import strategiesdecisions.beans.*;
+import java.util.List;
+
 /**
  * <b>SR1.1</b> - Agent "Y" sends a reply to agent "X", having sent 
  * the advertisement of most interest
@@ -9,7 +13,11 @@ package strategiesdecisions.replystrategies;
 public class NonBlockingIndvImmReply implements IReplyStrategy {
 	
 	@Override
-	public void executer(){
+	public void executer(ICommunication comm){
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
+		List<Message> ads = comm.recevoirMessages(0); // qui est le destinataire?
+		// ad = best(ads); -> recuperer emetteur
+		Message reply = new Response();
+		comm.envoyerMessage(0, 1, reply); //
 	}
 }

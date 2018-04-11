@@ -1,5 +1,7 @@
 package strategiesdecisions.replystrategies;
 
+import strategiesdecisions.communication.ICommunication;
+
 /**
  * <b>SN (SRP)</b> - The agent does not take on any action regardless of 
  * the communication protocol's state/stage
@@ -8,5 +10,5 @@ package strategiesdecisions.replystrategies;
  */
 public class NoReply implements IReplyStrategy {
 	@Override
-	public void executer(){}
+	public void executer(ICommunication comm){}
 }

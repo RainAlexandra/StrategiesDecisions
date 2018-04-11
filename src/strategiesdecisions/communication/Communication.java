@@ -14,19 +14,18 @@ public class Communication implements ICommunication {
 
 	@Override
 	public void diffuserMessage(Message m) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("diffuser message");
 	}
 
 	@Override
 	public void envoyerMessage(int emetteur, int destinataire, Message m) {
-		// TODO Auto-generated method stub
+		System.out.println("envoyer message");
 		
 	}
 
 	@Override
 	public List<Message> recevoirMessages(int destinataire) {
-		// TODO Auto-generated method stub
+		System.out.println("recevoir message");
 		return null;
 	}
 }

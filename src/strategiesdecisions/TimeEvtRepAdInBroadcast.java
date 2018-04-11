@@ -10,7 +10,7 @@ package strategiesdecisions;
 public class TimeEvtRepAdInBroadcast implements IAdvertiseStrategy {
 
 	@Override
-	public void executer() {
+	public void executer(ICommunication comm){
 		System.out.println("time-Event-Repeated-Ad-In-Broadcast");
 	}
 }

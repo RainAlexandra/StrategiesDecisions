@@ -9,5 +9,5 @@ package strategiesdecisions;
 public class NoAdvertise implements IAdvertiseStrategy {
 
 	@Override
-	public void executer(){}
+	public void executer(ICommunication comm){}
 }

@@ -9,7 +9,7 @@ package strategiesdecisions;
 public class SingleAdInMulticastDir implements IAdvertiseStrategy {
 	
 	@Override
-	public void executer(){
+	public void executer(ICommunication comm){
 		System.out.println("single-Ad-In-Multicast-Directory");
 	}
 }

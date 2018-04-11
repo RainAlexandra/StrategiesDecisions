@@ -10,6 +10,5 @@ package strategiesdecisions;
  * @version 0.1
  */
 public interface IAdvertiseStrategy {
-	ICommunication comm = new Communication();
-	public void executer();
+	public void executer(ICommunication comm);
 }

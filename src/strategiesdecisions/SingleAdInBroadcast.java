@@ -9,7 +9,9 @@ package strategiesdecisions;
 public class SingleAdInBroadcast implements IAdvertiseStrategy {
 
 	@Override
-	public void executer() {
-		System.out.println("single-Ad-In-Broadcast");
+	public void executer(ICommunication comm){
+//		System.out.println("single-Ad-In-Broadcast");
+		Message ad = new Ad();
+		comm.diffuserMessage(ad);
 	}
 }

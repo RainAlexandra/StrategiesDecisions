@@ -1,5 +1,8 @@
 package strategiesdecisions;
 
-public class Ad extends Message {
-
-}
+/**
+ * Advertise type message
+ * @author Rain-Alexandra BEGG
+ * @version 0.1
+ */
+public class Ad extends Message {}

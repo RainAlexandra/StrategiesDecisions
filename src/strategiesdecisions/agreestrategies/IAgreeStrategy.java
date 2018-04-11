@@ -10,6 +10,5 @@ import strategiesdecisions.communication.ICommunication;
  * @version 0.1
  */
 public interface IAgreeStrategy {
-	ICommunication comm = new Communication();
-	public void executer();
+	public void executer(ICommunication comm);
 }

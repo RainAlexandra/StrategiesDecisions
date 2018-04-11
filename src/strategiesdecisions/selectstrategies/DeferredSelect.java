@@ -1,5 +1,7 @@
 package strategiesdecisions.selectstrategies;
 
+import strategiesdecisions.communication.ICommunication;
+
 /**
  * <b>SSlc2</b> - Agent "X" does not immediately Select a reply. It waits for 
  * a length of time "Dt", selects the reply of the highest interest 
@@ -11,7 +13,7 @@ package strategiesdecisions.selectstrategies;
 public class DeferredSelect implements ISelectStrategy {
 	
 	@Override
-	public void executer(){
+	public void executer(ICommunication comm){
 		System.out.println("deferred-Select");
 	}
 }

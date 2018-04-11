@@ -1,5 +1,7 @@
 package strategiesdecisions.agreestrategies;
 
+import strategiesdecisions.communication.ICommunication;
+
 /**
  * <b>SAG1.1</b> - Agent "Y" accepts the binding request made by agent "X" and
  * contacts the binder agent in order for the physical binding to be done
@@ -9,7 +11,7 @@ package strategiesdecisions.agreestrategies;
 public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 	
 	@Override
-	public void executer(){
+	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Implicit-Response");
 	}
 }

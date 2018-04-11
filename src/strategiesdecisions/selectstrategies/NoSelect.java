@@ -1,5 +1,7 @@
 package strategiesdecisions.selectstrategies;
 
+import strategiesdecisions.communication.ICommunication;
+
 /**
  * <b>SN (SSL)</b> - The agent does not take on any action regardless of 
  * the communication protocol's state/stage
@@ -9,5 +11,5 @@ package strategiesdecisions.selectstrategies;
 public class NoSelect implements ISelectStrategy {
 	
 	@Override
-	public void executer(){}
+	public void executer(ICommunication comm){}
 }

@@ -9,19 +9,18 @@ public class Communication implements ICommunication {
 	@Override
 	public void diffuserMessage(Message m) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void envoyerMessage(int emetteur, int desitinataire, Message m) {
+	public void envoyerMessage(int emetteur, int destinataire, Message m) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public List<Message> recevoirMessage(int destinataire) {
+	public List<Message> recevoirMessages(int destinataire) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

@@ -1,5 +1,7 @@
 package strategiesdecisions.agreestrategies;
 
+import strategiesdecisions.communication.ICommunication;
+
 /**
  * <b>SAG2.2</b> - Agent "Y" does not immediately accept agent "X"'s binding 
  * request but waits for a length of time "Dt" to elapse. The binder agent 
@@ -11,7 +13,7 @@ package strategiesdecisions.agreestrategies;
 public class DeferredAgreeExplicitReply implements IAgreeStrategy {
 	
 	@Override
-	public void executer(){
+	public void executer(ICommunication comm){
 		System.out.println("deferred-Agreement-Explicit-Response");
 	}
 }

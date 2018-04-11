@@ -12,7 +12,7 @@ import strategiesdecisions.beans.*;
  * @version 0.1
  */
 public class ImmediateSelect implements ISelectStrategy {
-	
+		
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Select");

@@ -5,4 +5,8 @@ package strategiesdecisions.beans;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public abstract class Message {}
+public abstract class Message {
+	String emetteur; // refAgent emetteur
+	String destinataire; // refAgent destinataire
+	String contenu;
+}

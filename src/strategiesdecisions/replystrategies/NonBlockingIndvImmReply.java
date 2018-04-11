@@ -11,11 +11,27 @@ import java.util.List;
  * @version 0.1
  */
 public class NonBlockingIndvImmReply implements IReplyStrategy {
+	private List<Message> ads;
 	
+	
+	
+	public NonBlockingIndvImmReply(List<Message> ads) {
+		super();
+		this.ads = ads;
+	}
+
+
+
+	public void setAds(List<Message> ads) {
+		this.ads = ads;
+	}
+
+
+
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
-		List<Message> ads = comm.recevoirMessages(0); // destinataire = 0
+//		ads = comm.recevoirMessages(0); // destinataire = 0
 		// bestSender = best(ads); -> 1
 		Message reply = new Response();
 		comm.envoyerMessage(0, 1, reply);

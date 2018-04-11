@@ -13,5 +13,6 @@ public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Implicit-Response");
+		
 	}
 }

@@ -1,6 +1,6 @@
 package strategiesdecisions.adstrategies;
 
-import strategiesdecisions.ICommunication;
+import strategiesdecisions.communication.ICommunication;
 
 /**
  * <b>SA1.4</b> - The agent sends an "Ad" message to all the agents present in 

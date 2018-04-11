@@ -1,6 +1,6 @@
 package strategiesdecisions.adstrategies;
 
-import strategiesdecisions.ICommunication;
+import strategiesdecisions.communication.ICommunication;
 
 /**
  * <b>SAD</b> - The advertisement strategies depend on whether or not an ad is

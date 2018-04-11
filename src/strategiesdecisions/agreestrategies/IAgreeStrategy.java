@@ -1,7 +1,7 @@
 package strategiesdecisions.agreestrategies;
 
-import strategiesdecisions.Communication;
-import strategiesdecisions.ICommunication;
+import strategiesdecisions.communication.Communication;
+import strategiesdecisions.communication.ICommunication;
 
 /**
  * <b>SAG</b> - The Agreement strategies depend on whether or not the agreement

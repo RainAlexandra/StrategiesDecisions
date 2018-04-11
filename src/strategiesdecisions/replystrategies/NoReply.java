@@ -1,6 +1,4 @@
-package strategiesdecisions;
-
-import strategiesdecisions.replystrategies.IReplyStrategy;
+package strategiesdecisions.replystrategies;
 
 /**
  * <b>SN (SRP)</b> - The agent does not take on any action regardless of 

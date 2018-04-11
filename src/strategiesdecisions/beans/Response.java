@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.beans;
 
 /**
  * Reply type message

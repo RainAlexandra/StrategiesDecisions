@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.beans;
 
 /**
  * Advertise type message

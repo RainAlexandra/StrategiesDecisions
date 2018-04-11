@@ -1,6 +1,6 @@
-package strategiesdecisions;
+package strategiesdecisions.adstrategies;
 
-import strategiesdecisions.adstrategies.IAdvertiseStrategy;
+import strategiesdecisions.communication.ICommunication;
 
 /**
  * <b>SN (SAD)</b> - The agent does not take on any action regardless of 

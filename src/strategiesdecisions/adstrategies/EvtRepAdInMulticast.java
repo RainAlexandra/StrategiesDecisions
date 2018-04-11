@@ -1,6 +1,6 @@
 package strategiesdecisions.adstrategies;
 
-import strategiesdecisions.ICommunication;
+import strategiesdecisions.communication.ICommunication;
 
 /**
  * <b>SA2.3</b> - The agent sends an ad to a group (can be an individual) of 

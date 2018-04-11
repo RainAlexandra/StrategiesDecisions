@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.beans;
 
 /**
  * Messages are used by agents in order to communicate with each other

@@ -1,4 +1,4 @@
-package strategiesdecisions;
+package strategiesdecisions.beans;
 
 /**
  * Select type message

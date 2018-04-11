@@ -1,8 +1,8 @@
 package strategiesdecisions.adstrategies;
 
-import strategiesdecisions.Ad;
-import strategiesdecisions.ICommunication;
-import strategiesdecisions.Message;
+import strategiesdecisions.beans.Ad;
+import strategiesdecisions.beans.Message;
+import strategiesdecisions.communication.ICommunication;
 
 /**
  * <b>SA1.1</b> - The agent sends an "Ad" message to all the agents present in 
@@ -17,5 +17,6 @@ public class SingleAdInBroadcast implements IAdvertiseStrategy {
 //		System.out.println("single-Ad-In-Broadcast");
 		Message ad = new Ad();
 		comm.diffuserMessage(ad);
+//		S <- S - SAD
 	}
 }

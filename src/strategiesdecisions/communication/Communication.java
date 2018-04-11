@@ -1,6 +1,8 @@
-package strategiesdecisions;
+package strategiesdecisions.communication;
 
 import java.util.List;
+
+import strategiesdecisions.beans.Message;
 
 public class Communication implements ICommunication {
 

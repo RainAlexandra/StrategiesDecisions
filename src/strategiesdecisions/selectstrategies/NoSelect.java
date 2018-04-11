@@ -1,6 +1,4 @@
-package strategiesdecisions;
-
-import strategiesdecisions.selectstrategies.ISelectStrategy;
+package strategiesdecisions.selectstrategies;
 
 /**
  * <b>SN (SSL)</b> - The agent does not take on any action regardless of 

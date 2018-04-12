@@ -10,7 +10,7 @@ import java.util.TimeZone;
  * @version 0.1
  */
 public abstract class Message {
-	String transmitter; // refAgent transmittor
+	String transmitter; // refAgent transmitter
 	String recipient; // refAgent recipient
 	String contents;
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -19,7 +19,7 @@ public abstract class Message {
 	/**
 	 * @return the transmitting agent ID of the message
 	 */
-	public String getTransmittor() {
+	public String getTransmitter() {
 		return transmitter;
 	}
 	
@@ -46,10 +46,10 @@ public abstract class Message {
 	}
 
 	/**
-	 * @param transmittor the new ID of the transmitting agent
+	 * @param transmitter the new ID of the transmitting agent
 	 */
-	public void setTransmittor(String transmittor) {
-		this.transmitter = transmittor;
+	public void settransmitter(String transmitter) {
+		this.transmitter = transmitter;
 	}
 
 	/**
@@ -76,6 +76,5 @@ public abstract class Message {
 	public static void main(String[] args) {
 		sdf.setTimeZone(TimeZone.getTimeZone("GMT")); // removes time zone issues
 		System.out.println(sdf.format(new Date()));
-		
 	}
 }

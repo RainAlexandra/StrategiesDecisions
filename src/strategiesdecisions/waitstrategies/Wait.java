@@ -14,7 +14,7 @@ import strategiesdecisions.beans.*;
  * @version 0.1
  */
 public class Wait implements IWaitStrategy {
-	private enum MessageType { AD, RESPONSE, SELECTION, OTHERS }
+	private enum MessageType { AD, RESPONSE, SELECTION, OTHER }
 	
 	private class MessageComparator implements Comparator<Message> {
 
@@ -31,19 +31,23 @@ public class Wait implements IWaitStrategy {
 	
 	private EnumMap<MessageType, TreeSet<Message>> messages = new EnumMap<>(MessageType.class);  
 	
-	public void setMessages(MessageType msgType, Message msg){
-		TreeSet<Message> msgSet = messages.get(msgType);
-		msgSet.add(msg);
-		this.messages.put(msgType, msgSet);
+//	public void setMessages(MessageType msgType, Message msg){
+//		TreeSet<Message> msgSet = messages.get(msgType);
+//		msgSet.add(msg);
+//		this.messages.put(msgType, msgSet);
+//	}
+	
+	public void setMessages(EnumMap<MessageType, TreeSet<Message>> messages) {
+		this.messages = messages;
 	}
 
 	public Wait(){
 		messages.put(MessageType.AD, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.RESPONSE, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.SELECTION, new TreeSet<>(new MessageComparator()));
-		messages.put(MessageType.OTHERS, new TreeSet<>(new MessageComparator()));
+		messages.put(MessageType.OTHER, new TreeSet<>(new MessageComparator()));
 	}
-	
+
 	private String printMsgs(TreeSet<Message> msgs){
 		String ret = "";
 		for (Message m : msgs){
@@ -62,7 +66,7 @@ public class Wait implements IWaitStrategy {
 		ad2.setContents("a test ad");
 		ads.add(ad1);
 		ads.add(ad2);
-		messages.put(MessageType.AD, ads);
-		System.out.println(printMsgs(ads));
+		System.out.println(printMsgs(messages.get(MessageType.AD)));
+		System.out.println(printMsgs(messages.get(MessageType.OTHER)));
 	}
 }

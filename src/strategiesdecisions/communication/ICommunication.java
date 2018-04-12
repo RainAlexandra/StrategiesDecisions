@@ -17,11 +17,10 @@ public interface ICommunication {
 	
 	/**
 	 * sends a message from one agent to another
-	 * @param emetteur the transmitter of the message
-	 * @param destinataire the recipient of the message
 	 * @param m the message to be sent
 	 */
-	public void envoyerMessage(int emetteur, int destinataire, Message m);
+//	public void envoyerMessage(int emetteur, int destinataire, Message m);
+	public void envoyerMessage(Message m);
 	
 	/**
 	 * allows an agent to receive a list of messages

@@ -14,7 +14,7 @@ import strategiesdecisions.beans.*;
  * @version 0.1
  */
 public class Wait implements IWaitStrategy {
-	private enum MessageType { AD, AGREEMENT, RESPONSE, SELECTION }
+	private enum MessageType { AD, RESPONSE, SELECTION, OTHERS }
 	
 	private class MessageComparator implements Comparator<Message> {
 
@@ -39,18 +39,30 @@ public class Wait implements IWaitStrategy {
 
 	public Wait(){
 		messages.put(MessageType.AD, new TreeSet<>(new MessageComparator()));
-		messages.put(MessageType.AGREEMENT, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.RESPONSE, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.SELECTION, new TreeSet<>(new MessageComparator()));
+		messages.put(MessageType.OTHERS, new TreeSet<>(new MessageComparator()));
+	}
+	
+	private String printMsgs(TreeSet<Message> msgs){
+		String ret = "";
+		for (Message m : msgs){
+			ret += m.getContents() + ", ";
+		}
+		return ret;
 	}
 	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("wait");
 		TreeSet<Message> ads = messages.get(MessageType.AD);
-		Message ad = new Ad();
-		ad.setContents("contents");
-		ads.add(ad);
+		Message ad1 = new Ad();
+		Message ad2 = new Ad();
+		ad1.setContents("contents");
+		ad2.setContents("a test ad");
+		ads.add(ad1);
+		ads.add(ad2);
 		messages.put(MessageType.AD, ads);
+		System.out.println(printMsgs(ads));
 	}
 }

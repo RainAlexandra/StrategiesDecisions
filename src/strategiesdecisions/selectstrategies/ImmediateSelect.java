@@ -18,8 +18,9 @@ public class ImmediateSelect implements ISelectStrategy {
 		System.out.println("immediate-Select");
 		List<Message> replies = comm.recevoirMessages(0); // destinataire = 0
 		// bestReplier = best(replies) -> 1
-		Message selection = new Selection();
-		comm.envoyerMessage(0, 1, selection);
+		Message selection = new Selection("0", "1", "this is a selection message", 0);
+//		comm.envoyerMessage(0, 1, selection);
+		comm.envoyerMessage(selection);
 		// S <- SN, SWA
 	}
 }

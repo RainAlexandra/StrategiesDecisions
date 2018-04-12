@@ -5,4 +5,10 @@ package strategiesdecisions.beans;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class Agreement extends Message {}
+public class Agreement extends Message {
+
+	public Agreement(String transmitter, String recipient, String contents, int seqNum) {
+		super(transmitter, recipient, contents, seqNum);
+	}
+
+}

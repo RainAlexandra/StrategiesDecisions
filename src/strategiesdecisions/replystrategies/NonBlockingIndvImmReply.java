@@ -33,7 +33,8 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
 //		ads = comm.recevoirMessages(0); // destinataire = 0
 		// bestSender = best(ads); -> 1
-		Message reply = new Response();
-		comm.envoyerMessage(0, 1, reply);
+		Message reply = new Response("0", "1", "this is a reply message", 0);
+//		comm.envoyerMessage(0, 1, reply);
+		comm.envoyerMessage(reply);
 	}
 }

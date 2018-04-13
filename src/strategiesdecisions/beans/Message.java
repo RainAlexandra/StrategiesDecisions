@@ -10,6 +10,7 @@ public abstract class Message {
 	private String recipient; // refAgent recipient
 	private String contents;
 	private int seqNum;
+	private MessageType msgType;
 
 	/**
 	 * @param transmitter the transmitting agent of the message
@@ -39,6 +40,10 @@ public abstract class Message {
 	public int getSeqNum() {
 		return seqNum;
 	}
+	
+	public MessageType getMsgType(){
+		return msgType;
+	}
 
 	public void settransmitter(String transmitter) {
 		this.transmitter = transmitter;
@@ -54,5 +59,9 @@ public abstract class Message {
 
 	public void setSeqNum(int seqNum) {
 		this.seqNum = seqNum;
+	}
+	
+	public void setMsgType(MessageType msgType){
+		this.msgType = msgType;
 	}
 }

@@ -19,6 +19,10 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 		this.ads = ads;
 	}
 
+	public Set<Message> getAds(){
+		return ads;
+	}
+	
 	public void setAds(HashSet<Message> ads) {
 		this.ads = ads;
 	}
@@ -28,7 +32,9 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
 //		ads = comm.recevoirMessages(0); // destinataire = 0
 		// bestSender = best(ads); -> 1
+		
 		Message reply = new Response("1", "0", "this is a reply message", 0);
+		
 //		comm.envoyerMessage(0, 1, reply);
 		comm.envoyerMessage(reply);
 	}

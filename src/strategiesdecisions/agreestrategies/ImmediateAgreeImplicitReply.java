@@ -36,7 +36,7 @@ public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 //		Selection bestSelection = best(selections) -> 1
 //		String refBinder = bestSelection.getBinder();
 		
-		Message binding = new Binding("Y", "refBinder", "serviceRef1", "this is a binding agreement", 0);
+		Message binding = new Binding("Y", "refBinder", "serviceRef_Y", "this is a binding agreement", 0);
 		comm.envoyerMessage(binding);
 		
 		// S <- SN, SWA

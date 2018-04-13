@@ -34,9 +34,9 @@ public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 		System.out.println("immediate-Agreement-Implicit-Response");
 //		List<Message> selections = comm.recevoirMessages(0); // destinataire = 0
 //		Selection bestSelection = best(selections) -> 1
-//		String binder = bestSelection.getBinder();
+//		String refBinder = bestSelection.getBinder();
 		
-		Message binding = new Binding("1", "binder", "serviceRef1", "this is a binding agreement", 0);
+		Message binding = new Binding("Y", "refBinder", "serviceRef1", "this is a binding agreement", 0);
 		comm.envoyerMessage(binding);
 		
 		// S <- SN, SWA

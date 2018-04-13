@@ -21,7 +21,7 @@ public class Communication implements ICommunication {
 	@Override
 	// public void envoyerMessage(int emetteur, int destinataire, Message m) {
 	public void envoyerMessage(Message m){
-		System.out.println("envoyer message de " + m.getTransmitter() + " à " + m.getRecipient() + 
+		System.out.println("envoyer " + m.getMsgType() + " message de " + m.getTransmitter() + " à " + m.getRecipient() + 
 				"\n    " + m.getContents() + "\n    seq = #" + m.getSeqNum());
 		
 	}

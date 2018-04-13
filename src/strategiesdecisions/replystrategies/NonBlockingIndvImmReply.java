@@ -3,8 +3,8 @@ package strategiesdecisions.replystrategies;
 import strategiesdecisions.communication.ICommunication;
 import strategiesdecisions.beans.*;
 
-import java.util.Set;
-import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * <b>SR1.1</b> - Agent "Y" sends a reply to agent "X", having sent 
@@ -13,17 +13,17 @@ import java.util.HashSet;
  * @version 0.1
  */
 public class NonBlockingIndvImmReply implements IReplyStrategy {
-	private Set<Message> ads;
+	private List<Message> ads;
 	
-	public NonBlockingIndvImmReply(HashSet<Message> ads) {
+	public NonBlockingIndvImmReply(ArrayList<Message> ads) {
 		this.ads = ads;
 	}
 
-	public Set<Message> getAds(){
+	public List<Message> getAds(){
 		return ads;
 	}
 	
-	public void setAds(HashSet<Message> ads) {
+	public void setAds(ArrayList<Message> ads) {
 		this.ads = ads;
 	}
 
@@ -33,9 +33,11 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 //		ads = comm.recevoirMessages(0); // destinataire = 0
 		// bestSender = best(ads); -> 1
 		
-		Message reply = new Response("1", "0", "this is a reply message", 0);
+		Message reply = new Response("Y", "X", "this is a reply message", 0);
 		
 //		comm.envoyerMessage(0, 1, reply);
 		comm.envoyerMessage(reply);
+		
+		// S <- S
 	}
 }

@@ -1,6 +1,5 @@
 package strategiesdecisions.selectstrategies;
 
-import strategiesdecisions.communication.Communication;
 import strategiesdecisions.communication.ICommunication;
 
 /**

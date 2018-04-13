@@ -1,14 +1,11 @@
 package strategiesdecisions.selectstrategies;
 
 import java.util.Set;
-import java.util.List;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 import strategiesdecisions.beans.*;
 
 import strategiesdecisions.communication.ICommunication;
-import strategiesdecisions.beans.*;
 
 /**
  * <b>SSlc1</b> - Agent "X" selects a response that it considers of interest,
@@ -24,6 +21,14 @@ public class ImmediateSelect implements ISelectStrategy {
 		this.responses = responses;
 	}
 
+	public Set<Message> getResponses() {
+		return responses;
+	}
+
+	public void setResponses(Set<Message> responses) {
+		this.responses = responses;
+	}
+
 	public void setResponses(HashSet<Message> responses){
 		this.responses = responses;
 	}
@@ -33,10 +38,15 @@ public class ImmediateSelect implements ISelectStrategy {
 		System.out.println("immediate-Select");
 //		List<Message> replies = comm.recevoirMessages(0); // destinataire = 0
 //		bestReplier = best(replies) -> 1
-		Message selection = new Selection("0", "1", "this is a selection message", 0);
+
+		Message binding = new Binding("0", "Binder", "serviceRef", "this is a binding request", 0);
+		comm.envoyerMessage(binding);
+		
+		Message selection = new Selection("0", "1", "Binder", "this is a selection message", 0);
+		
 //		comm.envoyerMessage(0, 1, selection);
 		comm.envoyerMessage(selection);
-		// envoie message pour declencher binding
+
 		// S <- SN, SWA
 	}
 }

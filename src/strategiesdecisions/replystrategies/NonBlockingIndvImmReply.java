@@ -13,7 +13,7 @@ import java.util.HashSet;
  * @version 0.1
  */
 public class NonBlockingIndvImmReply implements IReplyStrategy {
-	private Set<Message> ads = new HashSet<>();
+	private Set<Message> ads;
 	
 	public NonBlockingIndvImmReply(HashSet<Message> ads) {
 		this.ads = ads;
@@ -28,7 +28,7 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
 //		ads = comm.recevoirMessages(0); // destinataire = 0
 		// bestSender = best(ads); -> 1
-		Message reply = new Response("0", "1", "this is a reply message", 0);
+		Message reply = new Response("1", "0", "this is a reply message", 0);
 //		comm.envoyerMessage(0, 1, reply);
 		comm.envoyerMessage(reply);
 	}

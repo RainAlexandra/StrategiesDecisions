@@ -3,6 +3,9 @@ package strategiesdecisions.waitstrategies;
 import java.util.Comparator;
 
 import strategiesdecisions.beans.Message;
+import strategiesdecisions.beans.MessageType;
+import strategiesdecisions.beans.Binding;
+import strategiesdecisions.beans.Selection;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -34,6 +37,22 @@ public interface IWaitStrategy {
 			String recMsg2 = msg2.getRecipient();
 			compTrans = recMsg1.compareTo(recMsg2);
 			if (compRec != 0) return compRec;
+			
+			if (msg1.getMsgType().compareTo(MessageType.BINDING) == 0 
+				&& msg2.getMsgType().compareTo(MessageType.BINDING) == 0){
+				int compServ =0;
+				String servMsg1 = ((Binding)msg1).getService();
+				String servMsg2 = ((Binding)msg2).getService();
+				compServ = servMsg1.compareTo(servMsg2);
+				if (compServ != 0) return compServ;
+			} else if (msg1.getMsgType().compareTo(MessageType.SELECTION) == 0
+					&& msg2.getMsgType().compareTo(MessageType.SELECTION) == 0){
+				int compBinder =0;
+				String bindMsg1 = ((Selection)msg1).getBinder();
+				String bindMsg2 = ((Selection)msg2).getBinder();
+				compBinder = bindMsg1.compareTo(bindMsg2);
+				if (compBinder != 0) return compBinder;
+			}
 			
 			int compContents = 0;
 			String contMsg1 = msg1.getContents();

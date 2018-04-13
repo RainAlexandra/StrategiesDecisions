@@ -1,6 +1,3 @@
-/**
- * 
- */
 package strategiesdecisions.beans;
 
 /**
@@ -12,9 +9,10 @@ public class Binding extends Message {
 
 	private String service; // refService
 	
-	public Binding(String transmitter, String recipient, String service, String contents, int seqNum) {
+	public Binding(String transmitter, String recipient, String service, String contents, int seqNum){
 		super(transmitter, recipient, contents, seqNum);
 		this.service = service;
+		this.setMsgType(MessageType.BINDING);
 	}
 
 	public String getService() {

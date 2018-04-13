@@ -9,6 +9,7 @@ public class Agreement extends Message {
 
 	public Agreement(String transmitter, String recipient, String contents, int seqNum) {
 		super(transmitter, recipient, contents, seqNum);
+		this.setMsgType(MessageType.AGREEMENT);
 	}
 
 }

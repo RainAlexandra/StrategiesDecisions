@@ -2,7 +2,9 @@ package strategiesdecisions.replystrategies;
 
 import strategiesdecisions.communication.ICommunication;
 import strategiesdecisions.beans.*;
-import java.util.List;
+
+import java.util.Set;
+import java.util.HashSet;
 
 /**
  * <b>SR1.1</b> - Agent "Y" sends a reply to agent "X", having sent 
@@ -11,14 +13,13 @@ import java.util.List;
  * @version 0.1
  */
 public class NonBlockingIndvImmReply implements IReplyStrategy {
-	private List<Message> ads;
+	private Set<Message> ads = new HashSet<>();
 	
-	public NonBlockingIndvImmReply(List<Message> ads) {
-		super();
+	public NonBlockingIndvImmReply(HashSet<Message> ads) {
 		this.ads = ads;
 	}
 
-	public void setAds(List<Message> ads) {
+	public void setAds(HashSet<Message> ads) {
 		this.ads = ads;
 	}
 

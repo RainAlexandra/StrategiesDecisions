@@ -6,10 +6,10 @@ package strategiesdecisions.beans;
  * @version 0.1
  */
 public abstract class Message {
-	String transmitter; // refAgent transmitter
-	String recipient; // refAgent recipient
-	String contents;
-	int seqNum;
+	private String transmitter; // refAgent transmitter
+	private String recipient; // refAgent recipient
+	private String contents;
+	private int seqNum;
 
 	/**
 	 * @param transmitter the transmitting agent of the message

@@ -35,7 +35,7 @@ public class ImmediateSelect implements ISelectStrategy {
 //		List<Message> replies = comm.recevoirMessages(0); // destinataire = 0
 //		bestReplier = best(replies) -> 1
 
-		Message binding = new Binding("X", "refBinder", "serviceRef0", "this is a binding request", 0);
+		Message binding = new Binding("X", "refBinder", "serviceRef_X", "this is a binding request", 0);
 		comm.envoyerMessage(binding);
 		
 		Message selection = new Selection("X", "Y", "Binder", "this is a selection message", 0);

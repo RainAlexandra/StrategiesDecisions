@@ -13,20 +13,14 @@ import java.util.List;
 public class NonBlockingIndvImmReply implements IReplyStrategy {
 	private List<Message> ads;
 	
-	
-	
 	public NonBlockingIndvImmReply(List<Message> ads) {
 		super();
 		this.ads = ads;
 	}
 
-
-
 	public void setAds(List<Message> ads) {
 		this.ads = ads;
 	}
-
-
 
 	@Override
 	public void executer(ICommunication comm){

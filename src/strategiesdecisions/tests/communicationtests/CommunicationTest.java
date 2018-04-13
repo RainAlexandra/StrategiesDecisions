@@ -1,4 +1,4 @@
-package strategiesdecisions.tests.communication;
+package strategiesdecisions.tests.communicationtests;
 
 import static org.junit.Assert.*;
 

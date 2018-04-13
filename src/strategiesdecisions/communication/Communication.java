@@ -14,7 +14,7 @@ public class Communication implements ICommunication {
 
 	@Override
 	public void diffuserMessage(Message m) {
-		System.out.println("diffuser message de " + m.getTransmitter() + 
+		System.out.println("diffuser message par " + m.getTransmitter() + 
 				"\n    " + m.getContents() + "\n    seq = #" + m.getSeqNum());
 	}
 

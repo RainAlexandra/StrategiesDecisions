@@ -18,7 +18,7 @@ import strategiesdecisions.beans.*;
  */
 public class Wait implements IWaitStrategy {
 	
-	private enum MessageType { AD, RESPONSE, SELECTION, OTHER }
+//	private enum MessageType { AD, RESPONSE, SELECTION, OTHER }
 	
 	private class MessageComparator implements Comparator<Message> {
 		@Override

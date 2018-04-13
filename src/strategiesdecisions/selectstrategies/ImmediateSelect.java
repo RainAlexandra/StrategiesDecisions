@@ -25,10 +25,6 @@ public class ImmediateSelect implements ISelectStrategy {
 		return responses;
 	}
 
-	public void setResponses(Set<Message> responses) {
-		this.responses = responses;
-	}
-
 	public void setResponses(HashSet<Message> responses){
 		this.responses = responses;
 	}
@@ -39,7 +35,7 @@ public class ImmediateSelect implements ISelectStrategy {
 //		List<Message> replies = comm.recevoirMessages(0); // destinataire = 0
 //		bestReplier = best(replies) -> 1
 
-		Message binding = new Binding("0", "Binder", "serviceRef", "this is a binding request", 0);
+		Message binding = new Binding("0", "Binder", "serviceRef0", "this is a binding request", 0);
 		comm.envoyerMessage(binding);
 		
 		Message selection = new Selection("0", "1", "Binder", "this is a selection message", 0);

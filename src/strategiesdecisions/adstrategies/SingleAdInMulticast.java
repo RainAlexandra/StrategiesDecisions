@@ -15,10 +15,12 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class SingleAdInMulticast implements IAdvertiseStrategy {
 	
+	private String agent;
 	private List<String> agents = new LinkedList<>();
 
 	// when initializing the SA2.1 strategy the list of agents is required for the multicast
-	public SingleAdInMulticast(String... agents){
+	public SingleAdInMulticast(String agent, String... agents){
+		this.agent = agent;
 		for (String a : agents){
 			this.agents.add(a);
 		}
@@ -39,7 +41,7 @@ public class SingleAdInMulticast implements IAdvertiseStrategy {
 		
 		for (String a : agents){
 			// String recipient = a.getID()
-			ad = new Ad("X", a, "this is a multicast ad", 0);
+			ad = new Ad(agent, a, "this is a multicast ad", 0);
 			comm.envoyerMessage(ad);
 			// S <- S - SAD
 		}

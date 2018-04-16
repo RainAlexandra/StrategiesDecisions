@@ -16,9 +16,11 @@ import strategiesdecisions.beans.*;
  */
 public class ImmediateAgreeExplicitReply implements IAgreeStrategy {
 	
+	String agent;
 	private List<Message> selections;
 	
-	public ImmediateAgreeExplicitReply(LinkedList<Message> selections){
+	public ImmediateAgreeExplicitReply(String agent, LinkedList<Message> selections){
+		this.agent = agent;
 		this.selections = selections;
 	}
 	
@@ -47,17 +49,21 @@ public class ImmediateAgreeExplicitReply implements IAgreeStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Explicit-Response");
-//		Selection bestSelection = best(selections) -> 1
+//		Selection bestSelection = best(selections)
 //		String refBinder = bestSelection.getBinder();
 //		String selectionTransmitter = bestSelection.getTransmitter();
 //		ArrayList<String> rejects = getRejectedSelectionTransmitters(selectionTransmitter);
 		
-		Message binding = new Binding("Y", "refBinder", "serviceRef_Y", "this is a binding agreement", 0);
-		Message agreement = new Agreement("Y", "selectionTransmitter", "Agree", 0);
-//		Message noAgreement;
-//		
-//		for (String agent : rejects){
-//			noAgreement = new Agreement("Y", agent, "No Agree", 0);
+		String refBinder = "Binder agent"; // to remove
+		String selectionTransmitter = "X"; // to remove
+		
+		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
+		Message agreement = new Agreement(agent, selectionTransmitter, "Agree", 0);
+
+//		No agree message sent to all rejects
+//		Message noAgreement;		
+//		for (String reject : rejects){
+//			noAgreement = new Agreement(agent, reject, "No Agree", 0);
 //			comm.envoyerMessage(noAgreement);
 //		}
 		comm.envoyerMessage(binding);

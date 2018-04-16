@@ -15,6 +15,7 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 	
+	private String agent;
 	private List<Message> selections;
 	
 	public ImmediateAgreeImplicitReply(LinkedList<Message> selections) {
@@ -32,11 +33,12 @@ public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Implicit-Response");
-//		List<Message> selections = comm.recevoirMessages(0); // destinataire = 0
-//		Selection bestSelection = best(selections) -> 1
+//		List<Message> selections = comm.recevoirMessages(0); // destinataire = Y
+//		Selection bestSelection = best(selections)
 //		String refBinder = bestSelection.getBinder();
+		String refBinder = "Binder agent"; // to remove
 		
-		Message binding = new Binding("Y", "refBinder", "serviceRef_Y", "this is a binding agreement", 0);
+		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
 		comm.envoyerMessage(binding);
 		
 		// S <- SN, SWA

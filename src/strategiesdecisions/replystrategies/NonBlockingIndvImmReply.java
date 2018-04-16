@@ -34,10 +34,11 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 	public void executer(ICommunication comm){
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
 //		ads = comm.recevoirMessages(0); // destinataire = Y
-//		String bestSender = best(ads); -> X
-		String bestSender = "X"; // to remove
+//		Message bestAd = best(ads);
+//		String bestTransmitter = bestAd.getTransmitter();
+		String bestTransmitter = "X"; // to remove
 		
-		Message reply = new Response(agent, bestSender, "this is a reply message", 0);
+		Message reply = new Response(agent, bestTransmitter, "this is a reply message", 0);
 		
 		comm.envoyerMessage(reply);
 		

@@ -35,16 +35,17 @@ public class ImmediateSelect implements ISelectStrategy {
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Select");
 //		List<Message> replies = comm.recevoirMessages(0); // destinataire = X
-//		String bestReplier = best(replies) -> Y
-		String bestReplier = "Y"; // to remove
+//		String bestReply = best(replies);
+//		String bestTransmitter = bestReply.getTransmitter();
+		String bestTransmitter = "Y"; // to remove
+		String refBinder = "Binder agent"; // to remove
 		
-		// the binder will be created and initialized with the service of the advertising agent
-		Message binding = new Binding(agent, "Binder agent", "serviceRef_" + agent, "this is a binding request", 0);
-		comm.envoyerMessage(binding);
-		
-		Message selection = new Selection(agent, bestReplier, "Binder agent", "this is a selection message", 0);
+//		the binder will be created and initialized with the service of the advertising agent
+		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding request", 0);
+		Message selection = new Selection(agent, bestTransmitter, "Binder agent", "this is a selection message", 0);
 		
 //		comm.envoyerMessage(0, 1, selection);
+		comm.envoyerMessage(binding);
 		comm.envoyerMessage(selection);
 
 		// S <- SN, SWA

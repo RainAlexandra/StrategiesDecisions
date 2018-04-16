@@ -1,10 +1,10 @@
 package strategiesdecisions.replystrategies;
 
+import java.util.List;
+import java.util.LinkedList;
+
 import strategiesdecisions.communication.ICommunication;
 import strategiesdecisions.beans.*;
-
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * <b>SR1.1</b> - Agent "Y" sends a reply to agent "X", having sent 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class NonBlockingIndvImmReply implements IReplyStrategy {
 	private List<Message> ads;
 	
-	public NonBlockingIndvImmReply(ArrayList<Message> ads) {
+	public NonBlockingIndvImmReply(LinkedList<Message> ads) {
 		this.ads = ads;
 	}
 
@@ -23,7 +23,7 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 		return ads;
 	}
 	
-	public void setAds(ArrayList<Message> ads) {
+	public void setAds(LinkedList<Message> ads) {
 		this.ads = ads;
 	}
 

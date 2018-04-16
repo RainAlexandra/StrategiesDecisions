@@ -1,6 +1,6 @@
 package strategiesdecisions.replystrategies;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import strategiesdecisions.beans.Message;
@@ -16,7 +16,7 @@ public class NonBlockingGrpImmReply implements IReplyStrategy {
 	
 	private List<Message> ads;
 	
-	public NonBlockingGrpImmReply(ArrayList<Message> ads) {
+	public NonBlockingGrpImmReply(LinkedList<Message> ads) {
 		this.ads = ads;
 	}
 
@@ -24,7 +24,7 @@ public class NonBlockingGrpImmReply implements IReplyStrategy {
 		return ads;
 	}
 	
-	public void setAds(ArrayList<Message> ads) {
+	public void setAds(LinkedList<Message> ads) {
 		this.ads = ads;
 	}
 	

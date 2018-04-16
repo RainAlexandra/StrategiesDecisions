@@ -1,7 +1,7 @@
 package strategiesdecisions.selectstrategies;
 
-import java.util.Set;
-import java.util.HashSet;
+import java.util.List;
+import java.util.LinkedList;
 
 import strategiesdecisions.beans.*;
 
@@ -15,17 +15,17 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class ImmediateSelect implements ISelectStrategy {
 	
-	private Set<Message> responses;
+	private List<Message> responses;
 	
-	public ImmediateSelect(HashSet<Message> responses){
+	public ImmediateSelect(LinkedList<Message> responses){
 		this.responses = responses;
 	}
 
-	public Set<Message> getResponses() {
+	public List<Message> getResponses() {
 		return responses;
 	}
 
-	public void setResponses(HashSet<Message> responses){
+	public void setResponses(LinkedList<Message> responses){
 		this.responses = responses;
 	}
 	

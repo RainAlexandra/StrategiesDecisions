@@ -1,7 +1,7 @@
 package strategiesdecisions.agreestrategies;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 import strategiesdecisions.beans.Binding;
 import strategiesdecisions.beans.Message;
@@ -15,17 +15,17 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 	
-	private Set<Message> selections;
+	private List<Message> selections;
 	
-	public ImmediateAgreeImplicitReply(HashSet<Message> selections) {
+	public ImmediateAgreeImplicitReply(LinkedList<Message> selections) {
 		this.selections = selections;
 	}
 
-	public Set<Message> getSelections(){
+	public List<Message> getSelections(){
 		return selections;
 	}
 
-	public void setSelections(HashSet<Message> selections){
+	public void setSelections(LinkedList<Message> selections){
 		this.selections = selections;
 	}
 	

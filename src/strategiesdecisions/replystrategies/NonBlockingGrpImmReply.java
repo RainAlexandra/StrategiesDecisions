@@ -14,9 +14,11 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class NonBlockingGrpImmReply implements IReplyStrategy {
 	
+	private String agent;
 	private List<Message> ads;
 	
-	public NonBlockingGrpImmReply(LinkedList<Message> ads) {
+	public NonBlockingGrpImmReply(String agent, LinkedList<Message> ads) {
+		this.agent = agent;
 		this.ads = ads;
 	}
 
@@ -38,7 +40,7 @@ public class NonBlockingGrpImmReply implements IReplyStrategy {
 //		Message reply;
 		
 		/*for (Agent a : grpOfSenders){
-			reply = new Response(calling_agent, a, "this is a reply msg", seqNum);
+			reply = new Response(agent, a, "this is a reply msg", seqNum);
 			comm.envoyerMessage(reply);
 			// a chaque tour de boucle seqNum++
 		}*/

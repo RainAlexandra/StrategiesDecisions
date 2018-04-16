@@ -17,6 +17,19 @@ import strategiesdecisions.communication.ICommunication;
  */
 public interface IWaitStrategy {
 	
+	/**
+	 * Messages are sorted by (in order)
+	 * <ol>
+	 * 	<li>Sequence number</li>
+	 * 	<li>Transmitter ID</li>
+	 * 	<li>Recipient ID</li>
+	 * 	<li>Service reference (if BINDING type)</li>
+	 * 	<li>Binder Reference (if SELECTION type)</li>
+	 * 	<li>Contents</li>
+	 * </ol>
+	 * @author Rain-Alexandra BEGG
+	 * @version 0.1
+	 */
 	class MessageComparator implements Comparator<Message> {
 		@Override
 		public int compare(Message msg1, Message msg2) {

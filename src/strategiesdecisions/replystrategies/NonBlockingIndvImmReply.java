@@ -13,9 +13,12 @@ import strategiesdecisions.beans.*;
  * @version 0.1
  */
 public class NonBlockingIndvImmReply implements IReplyStrategy {
+	
+	private String agent;
 	private List<Message> ads;
 	
-	public NonBlockingIndvImmReply(LinkedList<Message> ads) {
+	public NonBlockingIndvImmReply(String agent, LinkedList<Message> ads) {
+		this.agent = agent;
 		this.ads = ads;
 	}
 
@@ -30,12 +33,12 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
-//		ads = comm.recevoirMessages(0); // destinataire = 0
-		// bestSender = best(ads); -> 1
+//		ads = comm.recevoirMessages(0); // destinataire = Y
+//		String bestSender = best(ads); -> X
+		String bestSender = "X"; // to remove
 		
-		Message reply = new Response("Y", "X", "this is a reply message", 0);
+		Message reply = new Response(agent, bestSender, "this is a reply message", 0);
 		
-//		comm.envoyerMessage(0, 1, reply);
 		comm.envoyerMessage(reply);
 		
 		// S <- S

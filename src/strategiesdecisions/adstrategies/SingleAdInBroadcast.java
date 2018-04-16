@@ -12,10 +12,16 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class SingleAdInBroadcast implements IAdvertiseStrategy {
 	
+	private String agent;
+	
+	public SingleAdInBroadcast(String agent) {
+		this.agent = agent;
+	}
+	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("single-Ad-In-Broadcast");
-		Message ad = new Ad("X", "Y", "this is an advertisement", 0);
+		Message ad = new Ad(agent, "", "this is an advertisement", 0);
 		comm.diffuserMessage(ad);
 //		S <- S - SAD
 	}

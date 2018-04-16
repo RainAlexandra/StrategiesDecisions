@@ -15,9 +15,11 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class ImmediateSelect implements ISelectStrategy {
 	
+	private String agent;
 	private List<Message> responses;
 	
-	public ImmediateSelect(LinkedList<Message> responses){
+	public ImmediateSelect(String agent, LinkedList<Message> responses){
+		this.agent = agent;
 		this.responses = responses;
 	}
 
@@ -32,13 +34,15 @@ public class ImmediateSelect implements ISelectStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Select");
-//		List<Message> replies = comm.recevoirMessages(0); // destinataire = 0
-//		bestReplier = best(replies) -> 1
-
-		Message binding = new Binding("X", "refBinder", "serviceRef_X", "this is a binding request", 0);
+//		List<Message> replies = comm.recevoirMessages(0); // destinataire = X
+//		String bestReplier = best(replies) -> Y
+		String bestReplier = "Y"; // to remove
+		
+		// the binder will be created and initialized with the service of the advertising agent
+		Message binding = new Binding(agent, "Binder agent", "serviceRef_" + agent, "this is a binding request", 0);
 		comm.envoyerMessage(binding);
 		
-		Message selection = new Selection("X", "Y", "Binder", "this is a selection message", 0);
+		Message selection = new Selection(agent, bestReplier, "Binder agent", "this is a selection message", 0);
 		
 //		comm.envoyerMessage(0, 1, selection);
 		comm.envoyerMessage(selection);

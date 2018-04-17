@@ -13,7 +13,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class DeferredAgreeExplicitReply extends AgreeStrategy {
+public class DeferredAgreeExplicitReply extends AAgreeStrategy {
 	
 	public DeferredAgreeExplicitReply(String agent, LinkedList<Message> selections) {
 		super(agent, selections);

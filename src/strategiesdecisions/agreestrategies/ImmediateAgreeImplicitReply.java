@@ -12,7 +12,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class ImmediateAgreeImplicitReply extends AgreeStrategy {
+public class ImmediateAgreeImplicitReply extends AAgreeStrategy {
 	
 	public ImmediateAgreeImplicitReply(String agent, LinkedList<Message> selections) {
 		super(agent, selections);

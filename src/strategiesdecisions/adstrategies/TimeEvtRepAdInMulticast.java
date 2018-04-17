@@ -9,7 +9,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class TimeEvtRepAdInMulticast extends AdStrategy {
+public class TimeEvtRepAdInMulticast extends AAdStrategy {
 	
 	public TimeEvtRepAdInMulticast(String agent) {
 		super(agent);

@@ -10,13 +10,13 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class TimeRepAdInBroadcast extends AdStrategy {
+public class TimeRepAdInBroadcast extends AAdStrategy {
 
-	private int Dt;
+	private int dt;
 		
 	public TimeRepAdInBroadcast(String agent, int dt) {
 		super(agent);
-		this.Dt = dt;
+		this.dt = dt;
 	}
 
 	@Override
@@ -24,8 +24,9 @@ public class TimeRepAdInBroadcast extends AdStrategy {
 		System.out.println("time-Repeated-Ad-In-Broadcast");
 		Message ad = new Ad(agent, "", "this is an adevertisement", 0);
 		comm.diffuserMessage(ad);
-		while (Dt > 0){
+		while (dt > 0){
 			// S <- S - SAD
 		}
+		// S <- S
 	}
 }

@@ -1,8 +1,5 @@
 package strategiesdecisions.agreestrategies;
 
-import java.util.LinkedList;
-
-import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -11,10 +8,10 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class NoAgree extends AgreeStrategy {
+public class NoAgree extends AAgreeStrategy {
 	
-	public NoAgree(String agent, LinkedList<Message> selections) {
-		super(agent, selections);
+	public NoAgree(String agent) {
+		super(agent);
 	}
 
 	@Override

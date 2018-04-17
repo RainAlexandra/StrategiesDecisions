@@ -1,6 +1,5 @@
 package strategiesdecisions.agreestrategies;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -14,7 +13,7 @@ import strategiesdecisions.beans.*;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class ImmediateAgreeExplicitReply extends AgreeStrategy {
+public class ImmediateAgreeExplicitReply extends AAgreeStrategy {
 	
 	public ImmediateAgreeExplicitReply(String agent, LinkedList<Message> selections) {
 		super(agent, selections);

@@ -6,18 +6,19 @@ import java.util.List;
 import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
-public abstract class ReplyStrategy {
+public abstract class AReplyStrategy {
 	
 	protected String agent;
 	protected List<Message> ads;
 	
-	public ReplyStrategy(String agent, LinkedList<Message> ads) {
+	public AReplyStrategy(String agent){
+		this.agent = agent;
+		this.ads = null;
+	}
+	
+	public AReplyStrategy(String agent, LinkedList<Message> ads) {
 		this.agent = agent;
 		this.ads = ads;
-	}
-
-	public List<Message> getAds() {
-		return ads;
 	}
 
 	public void setAds(List<Message> ads) {

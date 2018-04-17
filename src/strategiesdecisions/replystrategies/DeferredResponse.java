@@ -12,7 +12,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class DeferredResponse extends ReplyStrategy {
+public class DeferredResponse extends AReplyStrategy {
 	
 	public DeferredResponse(String agent, LinkedList<Message> ads) {
 		super(agent, ads);

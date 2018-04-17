@@ -11,7 +11,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class ImmediateSelect extends SelectStrategy {
+public class ImmediateSelect extends ASelectStrategy {
 	
 	public ImmediateSelect(String agent, LinkedList<Message> responses){
 		super(agent, responses);

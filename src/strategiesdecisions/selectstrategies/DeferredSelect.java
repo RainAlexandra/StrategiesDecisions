@@ -13,7 +13,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class DeferredSelect extends SelectStrategy {
+public class DeferredSelect extends ASelectStrategy {
 	
 	public DeferredSelect(String agent, List<Message> responses) {
 		super(agent, responses);

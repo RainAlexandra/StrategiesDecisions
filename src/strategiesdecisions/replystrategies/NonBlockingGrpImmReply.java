@@ -10,7 +10,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class NonBlockingGrpImmReply extends ReplyStrategy {
+public class NonBlockingGrpImmReply extends AReplyStrategy {
 	
 	public NonBlockingGrpImmReply(String agent, LinkedList<Message> ads) {
 		super(agent, ads);

@@ -12,7 +12,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class BlockingIndvImmReplyImprovedMemo extends ReplyStrategy {
+public class BlockingIndvImmReplyImprovedMemo extends AReplyStrategy {
 
 	public BlockingIndvImmReplyImprovedMemo(String agent, LinkedList<Message> ads) {
 		super(agent, ads);

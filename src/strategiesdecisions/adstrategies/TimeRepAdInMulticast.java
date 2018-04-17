@@ -1,5 +1,10 @@
 package strategiesdecisions.adstrategies;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import strategiesdecisions.beans.Ad;
+import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -8,14 +13,34 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class TimeRepAdInMulticast extends AdStrategy {
+public class TimeRepAdInMulticast extends AAdStrategy {
+	
+	private int dt;
+	private List<String> targetAgents = new ArrayList<>();
 
-	public TimeRepAdInMulticast(String agent) {
+	public TimeRepAdInMulticast(String agent, int dt, String... targetAgents) {
 		super(agent);
+		this.dt = dt;
+		for (String a : targetAgents){
+			this.targetAgents.add(a);
+		}
 	}
 
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("time-Repeated-Ad-In-Multicast");
+		Message ad;
+		
+		for (String a : targetAgents){
+			// String recipient = a.getID()
+			ad = new Ad(agent, a, "this is a multicast ad", 0);
+			comm.envoyerMessage(ad);
+		}
+		
+		while (dt > 0){
+			// S <- S -SAD
+			dt--;
+		}
+		// S <- S
 	}
 }

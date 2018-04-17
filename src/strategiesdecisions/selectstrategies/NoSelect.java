@@ -1,8 +1,5 @@
 package strategiesdecisions.selectstrategies;
 
-import java.util.List;
-
-import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -11,10 +8,10 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class NoSelect extends SelectStrategy {
+public class NoSelect extends ASelectStrategy {
 	
-	public NoSelect(String agent, List<Message> responses) {
-		super(agent, responses);
+	public NoSelect(String agent) {
+		super(agent);
 	}
 
 	@Override

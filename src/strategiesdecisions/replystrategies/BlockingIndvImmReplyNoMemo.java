@@ -13,7 +13,7 @@ import strategiesdecisions.beans.Response;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public final class BlockingIndvImmReplyNoMemo extends ReplyStrategy {
+public final class BlockingIndvImmReplyNoMemo extends AReplyStrategy {
 
 	public BlockingIndvImmReplyNoMemo(String agent, LinkedList<Message> ads) {
 		super(agent, ads);
@@ -32,7 +32,7 @@ public final class BlockingIndvImmReplyNoMemo extends ReplyStrategy {
 		comm.envoyerMessage(reply);
 		
 		// se bloquer et ignorer toute annonce
-		// S <- SRP
+		// S <- S - SRP
 	}
 
 	

@@ -11,7 +11,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class BlockingIndvImmReplyWithMemo extends ReplyStrategy {
+public class BlockingIndvImmReplyWithMemo extends AReplyStrategy {
 
 	public BlockingIndvImmReplyWithMemo(String agent, LinkedList<Message> ads) {
 		super(agent, ads);

@@ -11,7 +11,7 @@ import strategiesdecisions.beans.*;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class NonBlockingIndvImmReply extends ReplyStrategy {
+public class NonBlockingIndvImmReply extends AReplyStrategy {
 	
 	public NonBlockingIndvImmReply(String agent, LinkedList<Message> ads) {
 		super(agent, ads);
@@ -20,7 +20,6 @@ public class NonBlockingIndvImmReply extends ReplyStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
-//		ads = comm.recevoirMessages(0); // destinataire = Y
 //		Message bestAd = best(ads);
 //		String bestTransmitter = bestAd.getTransmitter();
 		String bestTransmitter = "X"; // to remove

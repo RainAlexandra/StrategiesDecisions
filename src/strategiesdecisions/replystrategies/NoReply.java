@@ -1,8 +1,5 @@
 package strategiesdecisions.replystrategies;
 
-import java.util.LinkedList;
-
-import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -11,10 +8,10 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class NoReply extends ReplyStrategy {
+public class NoReply extends AReplyStrategy {
 	
-	public NoReply(String agent, LinkedList<Message> ads) {
-		super(agent, ads);
+	public NoReply(String agent) {
+		super(agent);
 	}
 
 	@Override

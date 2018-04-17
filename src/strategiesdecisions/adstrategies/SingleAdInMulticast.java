@@ -13,7 +13,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class SingleAdInMulticast extends AdStrategy {
+public class SingleAdInMulticast extends AAdStrategy {
 	
 	private List<String> targetAgents = new ArrayList<>();
 

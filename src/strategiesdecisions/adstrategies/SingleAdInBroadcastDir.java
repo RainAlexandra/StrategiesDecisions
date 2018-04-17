@@ -8,7 +8,7 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class SingleAdInBroadcastDir extends AdStrategy {
+public class SingleAdInBroadcastDir extends AAdStrategy {
 
 	public SingleAdInBroadcastDir(String agent) {
 		super(agent);

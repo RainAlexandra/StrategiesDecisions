@@ -41,7 +41,7 @@ public class DeferredAgreeImplicitReply implements IAgreeStrategy {
 		String refBinder = "Binder agent"; // to remove
 		
 		while (Dt > 0){
-			(new NoReply()).executer(comm); // on ne fait rien
+			(new NoReply(agent, null)).executer(comm); // on ne fait rien
 			Dt--;
 		}
 		

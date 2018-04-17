@@ -1,10 +1,8 @@
 package strategiesdecisions.selectstrategies;
 
-import java.util.List;
 import java.util.LinkedList;
 
 import strategiesdecisions.beans.*;
-
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -13,28 +11,15 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class ImmediateSelect implements ISelectStrategy {
-	
-	private String agent;
-	private List<Message> responses;
+public class ImmediateSelect extends SelectStrategy {
 	
 	public ImmediateSelect(String agent, LinkedList<Message> responses){
-		this.agent = agent;
-		this.responses = responses;
-	}
-
-	public List<Message> getResponses() {
-		return responses;
-	}
-
-	public void setResponses(LinkedList<Message> responses){
-		this.responses = responses;
+		super(agent, responses);
 	}
 	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Select");
-//		List<Message> replies = comm.recevoirMessages(0); // destinataire = X
 //		String bestReply = best(replies);
 //		String bestTransmitter = bestReply.getTransmitter();
 		String bestTransmitter = "Y"; // to remove
@@ -44,7 +29,6 @@ public class ImmediateSelect implements ISelectStrategy {
 		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding request", 0);
 		Message selection = new Selection(agent, bestTransmitter, "Binder agent", "this is a selection message", 0);
 		
-//		comm.envoyerMessage(0, 1, selection);
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(selection);
 

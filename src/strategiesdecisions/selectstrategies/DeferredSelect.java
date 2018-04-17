@@ -1,5 +1,8 @@
 package strategiesdecisions.selectstrategies;
 
+import java.util.List;
+
+import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -10,8 +13,12 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class DeferredSelect implements ISelectStrategy {
+public class DeferredSelect extends SelectStrategy {
 	
+	public DeferredSelect(String agent, List<Message> responses) {
+		super(agent, responses);
+	}
+
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("deferred-Select");

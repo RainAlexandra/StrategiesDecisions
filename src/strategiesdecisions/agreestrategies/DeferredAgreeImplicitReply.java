@@ -26,14 +26,15 @@ public class DeferredAgreeImplicitReply extends AAgreeStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("deferred-Agreement-Implicit-Response");
-//		Selection bestSelection = best(selections)
-//		String refBinder = bestSelection.getBinder();
-		String refBinder = "Binder agent"; // to remove
 		
 		while (dt > 0){
 			(new NoReply(agent)).executer(comm); // on ne fait rien
 			dt--;
 		}
+		
+//		Selection bestSelection = best(selections)
+//		String refBinder = bestSelection.getBinder();
+		String refBinder = "Binder agent"; // to remove
 		
 		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
 		comm.envoyerMessage(binding);

@@ -1,10 +1,8 @@
 package strategiesdecisions.replystrategies;
 
-import strategiesdecisions.communication.ICommunication;
-
 import java.util.LinkedList;
-import java.util.List;
 
+import strategiesdecisions.communication.ICommunication;
 import strategiesdecisions.beans.Message;
 import strategiesdecisions.beans.Response;
 
@@ -15,24 +13,12 @@ import strategiesdecisions.beans.Response;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public final class BlockingIndvImmReplyNoMemo implements IReplyStrategy {
+public final class BlockingIndvImmReplyNoMemo extends ReplyStrategy {
 
-	private String agent;
-	private List<Message> ads;
-	
 	public BlockingIndvImmReplyNoMemo(String agent, LinkedList<Message> ads) {
-		this.agent = agent;
-		this.setAds(ads);
-	}
-	
-	public List<Message> getAds() {
-		return ads;
+		super(agent, ads);
 	}
 
-	public void setAds(List<Message> ads) {
-		this.ads = ads;
-	}
-	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("blocking-Targeted-Immediate-Response-NMemorization");

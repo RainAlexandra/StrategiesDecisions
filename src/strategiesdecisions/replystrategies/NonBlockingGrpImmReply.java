@@ -1,10 +1,8 @@
 package strategiesdecisions.replystrategies;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import strategiesdecisions.beans.Message;
-//import strategiesdecisions.beans.Response;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -12,22 +10,10 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class NonBlockingGrpImmReply implements IReplyStrategy {
-	
-	private String agent;
-	private List<Message> ads;
+public class NonBlockingGrpImmReply extends ReplyStrategy {
 	
 	public NonBlockingGrpImmReply(String agent, LinkedList<Message> ads) {
-		this.agent = agent;
-		this.ads = ads;
-	}
-
-	public List<Message> getAds(){
-		return ads;
-	}
-	
-	public void setAds(LinkedList<Message> ads) {
-		this.ads = ads;
+		super(agent, ads);
 	}
 	
 	@Override

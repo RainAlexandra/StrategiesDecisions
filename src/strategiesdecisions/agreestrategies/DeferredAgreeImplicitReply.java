@@ -18,8 +18,9 @@ public class DeferredAgreeImplicitReply extends AAgreeStrategy {
 	
 	private int dt;
 
-	public DeferredAgreeImplicitReply(String agent, LinkedList<Message> selections) {
+	public DeferredAgreeImplicitReply(String agent, LinkedList<Message> selections, int dt) {
 		super(agent, selections);
+		this.dt = dt;
 	}
 		
 	@Override

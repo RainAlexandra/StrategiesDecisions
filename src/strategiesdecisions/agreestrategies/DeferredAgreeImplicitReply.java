@@ -1,7 +1,6 @@
 package strategiesdecisions.agreestrategies;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import strategiesdecisions.beans.Binding;
 import strategiesdecisions.beans.Message;
@@ -15,24 +14,14 @@ import strategiesdecisions.replystrategies.NoReply;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class DeferredAgreeImplicitReply implements IAgreeStrategy {
+public class DeferredAgreeImplicitReply extends AgreeStrategy {
 	
-	private String agent;
-	private List<Message> selections;
 	private int Dt;
-	
-	public DeferredAgreeImplicitReply(LinkedList<Message> selections) {
-		this.selections = selections;
-	}
 
-	public List<Message> getSelections(){
-		return selections;
+	public DeferredAgreeImplicitReply(String agent, LinkedList<Message> selections) {
+		super(agent, selections);
 	}
-
-	public void setSelections(LinkedList<Message> selections){
-		this.selections = selections;
-	}
-	
+		
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("deferred-Agreement-Implicit-Response");

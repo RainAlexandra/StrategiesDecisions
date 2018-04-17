@@ -14,24 +14,12 @@ import strategiesdecisions.beans.*;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class ImmediateAgreeExplicitReply implements IAgreeStrategy {
+public class ImmediateAgreeExplicitReply extends AgreeStrategy {
 	
-	String agent;
-	private List<Message> selections;
-	
-	public ImmediateAgreeExplicitReply(String agent, LinkedList<Message> selections){
-		this.agent = agent;
-		this.selections = selections;
+	public ImmediateAgreeExplicitReply(String agent, LinkedList<Message> selections) {
+		super(agent, selections);
 	}
-	
-	public List<Message> getSelections(){
-		return selections;
-	}
-	
-	public void setSelections(List<Message> selections) {
-		this.selections = selections;
-	}
-	
+
 	/**
 	 * @param selectedTransmitter the transmitter whose message was selected
 	 * @return the list of rejected selection transmitters

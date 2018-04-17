@@ -1,7 +1,6 @@
 package strategiesdecisions.agreestrategies;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import strategiesdecisions.beans.Binding;
 import strategiesdecisions.beans.Message;
@@ -13,23 +12,12 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
+public class ImmediateAgreeImplicitReply extends AgreeStrategy {
 	
-	private String agent;
-	private List<Message> selections;
-	
-	public ImmediateAgreeImplicitReply(LinkedList<Message> selections) {
-		this.selections = selections;
+	public ImmediateAgreeImplicitReply(String agent, LinkedList<Message> selections) {
+		super(agent, selections);
 	}
 
-	public List<Message> getSelections(){
-		return selections;
-	}
-
-	public void setSelections(LinkedList<Message> selections){
-		this.selections = selections;
-	}
-	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Implicit-Response");

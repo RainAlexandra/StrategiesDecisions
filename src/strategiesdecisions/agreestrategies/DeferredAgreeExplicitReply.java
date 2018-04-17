@@ -1,5 +1,8 @@
 package strategiesdecisions.agreestrategies;
 
+import java.util.LinkedList;
+
+import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -10,8 +13,12 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class DeferredAgreeExplicitReply implements IAgreeStrategy {
+public class DeferredAgreeExplicitReply extends AgreeStrategy {
 	
+	public DeferredAgreeExplicitReply(String agent, LinkedList<Message> selections) {
+		super(agent, selections);
+	}
+
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("deferred-Agreement-Explicit-Response");

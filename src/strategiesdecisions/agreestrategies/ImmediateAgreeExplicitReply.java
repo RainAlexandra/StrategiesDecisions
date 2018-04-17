@@ -1,6 +1,5 @@
 package strategiesdecisions.agreestrategies;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import strategiesdecisions.communication.ICommunication;
@@ -19,20 +18,6 @@ public class ImmediateAgreeExplicitReply extends AAgreeStrategy {
 		super(agent, selections);
 	}
 
-	/**
-	 * @param selectedTransmitter the transmitter whose message was selected
-	 * @return the list of rejected selection transmitters
-	 */
-	private ArrayList<String> getRejectedSelectionTransmitters(String selectedTransmitter){
-		ArrayList<String> rejectedTransmitters = new ArrayList<>();
-		for (Message m : selections){
-			String transmitter = m.getTransmitter();
-			if (transmitter.compareTo(selectedTransmitter) != 0)
-				rejectedTransmitters.add(transmitter);
-		}
-		return rejectedTransmitters;
-	}
-	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Explicit-Response");

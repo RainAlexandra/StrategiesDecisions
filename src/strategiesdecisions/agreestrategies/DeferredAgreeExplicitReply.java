@@ -2,6 +2,8 @@ package strategiesdecisions.agreestrategies;
 
 import java.util.LinkedList;
 
+import strategiesdecisions.beans.Agreement;
+import strategiesdecisions.beans.Binding;
 import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
@@ -15,12 +17,41 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class DeferredAgreeExplicitReply extends AAgreeStrategy {
 	
-	public DeferredAgreeExplicitReply(String agent, LinkedList<Message> selections) {
+	private int dt;
+	
+	public DeferredAgreeExplicitReply(String agent, LinkedList<Message> selections, int dt) {
 		super(agent, selections);
+		this.dt = dt;
 	}
 
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("deferred-Agreement-Explicit-Response");
+		
+		while (dt > 0){
+			// selections U {m} pour tout m selection
+			// S <- SN, SWA
+			dt--;
+		}
+
+//		Selection bestSelection = best(selections)
+//		String refBinder = bestSelection.getBinder();
+//		String selectionTransmitter = bestSelection.getTransmitter();
+//		ArrayList<String> rejects = getRejectedSelectionTransmitters(selectionTransmitter);
+		
+		String refBinder = "Binder agent"; // to remove
+		String selectionTransmitter = "X"; // to remove
+		
+		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
+		Message agreement = new Agreement(agent, selectionTransmitter, "Agree", 0);
+
+//		No agree message sent to all rejects
+//		Message noAgreement;		
+//		for (String reject : rejects){
+//			noAgreement = new Agreement(agent, reject, "No Agree", 0);
+//			comm.envoyerMessage(noAgreement);
+//		}
+		comm.envoyerMessage(binding);
+		comm.envoyerMessage(agreement);
 	}
 }

@@ -21,7 +21,6 @@ public class ImmediateAgreeImplicitReply extends AAgreeStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Implicit-Response");
-//		List<Message> selections = comm.recevoirMessages(0); // destinataire = Y
 //		Selection bestSelection = best(selections)
 //		String refBinder = bestSelection.getBinder();
 		String refBinder = "Binder agent"; // to remove

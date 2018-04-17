@@ -1,5 +1,6 @@
 package strategiesdecisions.agreestrategies;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,6 +24,20 @@ public abstract class AAgreeStrategy {
 
 	public void setSelections(List<Message> selections) {
 		this.selections = selections;
+	}
+	
+	/**
+	 * @param selectedTransmitter the transmitter whose message was selected
+	 * @return the list of rejected selection transmitters
+	 */
+	public ArrayList<String> getRejectedSelectionTransmitters(String selectedTransmitter){
+		ArrayList<String> rejectedTransmitters = new ArrayList<>();
+		for (Message m : selections){
+			String transmitter = m.getTransmitter();
+			if (transmitter.compareTo(selectedTransmitter) != 0)
+				rejectedTransmitters.add(transmitter);
+		}
+		return rejectedTransmitters;
 	}
 	
 	public abstract void executer(ICommunication comm);

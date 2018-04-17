@@ -3,6 +3,7 @@ package strategiesdecisions.replystrategies;
 import java.util.LinkedList;
 
 import strategiesdecisions.beans.Message;
+import strategiesdecisions.beans.Response;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -21,5 +22,18 @@ public class BlockingIndvImmReplyImprovedMemo extends AReplyStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("blocking-Targeted-Immediate-Response-Improved-Memorization");
+
+//		Message bestAd = best(ads);
+//		String bestTransmitter = bestAd.getTransmitter();
+		String bestTransmitter = "X";
+		
+		Message reply = new Response(agent, bestTransmitter, "this is a reply message", 0);
+		
+		comm.envoyerMessage(reply);
+		
+		// se bloquer et stocker toute annonce interessante (fonction F)
+		// S <- S - SRP
+		// ads <- Ad U {a} pour toute annonce a tq F(a) > seuil
+	
 	}
 }

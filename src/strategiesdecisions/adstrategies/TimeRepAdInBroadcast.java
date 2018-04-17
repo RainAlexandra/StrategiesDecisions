@@ -10,13 +10,12 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class TimeRepAdInBroadcast implements IAdvertiseStrategy {
+public class TimeRepAdInBroadcast extends AdStrategy {
 
-	private String agent;
 	private int Dt;
 		
 	public TimeRepAdInBroadcast(String agent, int dt) {
-		this.agent = agent;
+		super(agent);
 		this.Dt = dt;
 	}
 

@@ -9,8 +9,12 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class TimeEvtRepAdInMulticast implements IAdvertiseStrategy {
+public class TimeEvtRepAdInMulticast extends AdStrategy {
 	
+	public TimeEvtRepAdInMulticast(String agent) {
+		super(agent);
+	}
+
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("time-Event-Repeated-Ad-In-Multicast");

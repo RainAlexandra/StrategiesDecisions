@@ -9,7 +9,11 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class TimeEvtRepAdInBroadcast implements IAdvertiseStrategy {
+public class TimeEvtRepAdInBroadcast extends AdStrategy {
+
+	public TimeEvtRepAdInBroadcast(String agent) {
+		super(agent);
+	}
 
 	@Override
 	public void executer(ICommunication comm){

@@ -8,7 +8,11 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class TimeRepAdInMulticast implements IAdvertiseStrategy {
+public class TimeRepAdInMulticast extends AdStrategy {
+
+	public TimeRepAdInMulticast(String agent) {
+		super(agent);
+	}
 
 	@Override
 	public void executer(ICommunication comm){

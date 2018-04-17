@@ -10,12 +10,10 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class SingleAdInBroadcast implements IAdvertiseStrategy {
-	
-	private String agent;
+public class SingleAdInBroadcast extends AdStrategy {
 	
 	public SingleAdInBroadcast(String agent) {
-		this.agent = agent;
+		super(agent);
 	}
 	
 	@Override

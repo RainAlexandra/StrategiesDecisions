@@ -8,7 +8,11 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class SingleAdInBroadcastDir implements IAdvertiseStrategy {
+public class SingleAdInBroadcastDir extends AdStrategy {
+
+	public SingleAdInBroadcastDir(String agent) {
+		super(agent);
+	}
 
 	@Override
 	public void executer(ICommunication comm){

@@ -1,6 +1,6 @@
 package strategiesdecisions.adstrategies;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import strategiesdecisions.beans.Message;
@@ -13,25 +13,24 @@ import strategiesdecisions.communication.ICommunication;
  * @author Rain-Alexandra BEGG
  * @version 0.1
  */
-public class SingleAdInMulticast implements IAdvertiseStrategy {
+public class SingleAdInMulticast extends AdStrategy {
 	
-	private String agent;
-	private List<String> agents = new LinkedList<>();
+	private List<String> targetAgents = new ArrayList<>();
 
 	// when initializing the SA2.1 strategy the list of agents is required for the multicast
-	public SingleAdInMulticast(String agent, String... agents){
-		this.agent = agent;
-		for (String a : agents){
-			this.agents.add(a);
+	public SingleAdInMulticast(String agent, String... targetAgents){
+		super(agent);
+		for (String a : targetAgents){
+			this.targetAgents.add(a);
 		}
 	}
 
-	public List<String> getAgents() {
-		return agents;
+	public List<String> getTargetAgents() {
+		return targetAgents;
 	}
 
-	public void setAgents(List<String> agents) {
-		this.agents = agents;
+	public void setAgents(List<String> targetAgents) {
+		this.targetAgents = targetAgents;
 	}
 
 	@Override
@@ -39,7 +38,7 @@ public class SingleAdInMulticast implements IAdvertiseStrategy {
 		System.out.println("single-Ad-In-Multicast");
 		Message ad;
 		
-		for (String a : agents){
+		for (String a : targetAgents){
 			// String recipient = a.getID()
 			ad = new Ad(agent, a, "this is a multicast ad", 0);
 			comm.envoyerMessage(ad);

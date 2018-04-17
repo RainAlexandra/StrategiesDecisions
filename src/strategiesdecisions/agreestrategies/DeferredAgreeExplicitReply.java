@@ -30,7 +30,7 @@ public class DeferredAgreeExplicitReply extends AAgreeStrategy {
 		
 		while (dt > 0){
 			// selections U {m} pour tout m selection
-			// S <- SN, SWA
+			// S <- SAG
 			dt--;
 		}
 
@@ -53,5 +53,7 @@ public class DeferredAgreeExplicitReply extends AAgreeStrategy {
 //		}
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(agreement);
+		
+		// S <- SN, SWA
 	}
 }

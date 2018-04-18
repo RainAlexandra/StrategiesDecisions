@@ -25,14 +25,20 @@ public class TimeLimitWait implements IWaitStrategy {
 
 	@Override
 	public Map<MessageType, TreeSet<Message>> executer(){
+		System.out.println("time-Limited-Wait");
+		
 		while (dt > 0){
+			// XOR:
 			messages = (new Wait(agent)).executer();
-			/* ou */messages = (new ImprovedWait(agent)).executer();
-			// ou ne rien faire
-			// SW2.2
+			messages = (new ImprovedWait(agent)).executer();
+			(new NoWait()).executer();
+			//
+			
 			dt--;
+			
+			// S <- SW2.2
 		}
 		// S <- S
-		return messages; // ou null si rien n'a ete fait
+		return messages;
 	}
 }

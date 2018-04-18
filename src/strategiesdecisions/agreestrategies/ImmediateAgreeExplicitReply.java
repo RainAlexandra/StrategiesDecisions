@@ -23,11 +23,7 @@ public class ImmediateAgreeExplicitReply implements IAgreeStrategy {
 		this.agent = agent;
 		this.selections = selections;
 	}
-	
-	public List<Message> getSelections(){
-		return selections;
-	}
-	
+		
 	public void setSelections(List<Message> selections) {
 		this.selections = selections;
 	}

@@ -1,5 +1,9 @@
 package strategiesdecisions.replystrategies;
 
+import java.util.List;
+
+import strategiesdecisions.beans.Message;
+import strategiesdecisions.beans.Response;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -11,8 +15,39 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class DeferredResponse implements IReplyStrategy {
 	
+	private String agent;
+	private List<Message> ads;
+	private int dt;
+	
+	public DeferredResponse(String agent, List<Message> ads, int dt) {
+		this.agent = agent;
+		this.ads = ads;
+		this.dt = dt;
+	}
+
+	public void setAds(List<Message> ads) {
+		this.ads = ads;
+	}
+
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("deferred-Response");
+	
+		while (dt > 0){
+			(new NoReply()).executer(comm); // on ne fait rien
+			// ads <- ads U {a} pour toute annonce a
+			// S <- S - SRP
+			dt--;
+		}
+		
+//		Message bestAd = best(ads);
+//		String bestTransmitter = bestAd.getTransmitter();
+		String bestTransmitter = "X"; // to remove
+		
+		Message reply = new Response(agent, bestTransmitter, "this is a reply message", 0);
+		
+		comm.envoyerMessage(reply);
+		
+		// S <- S
 	}
 }

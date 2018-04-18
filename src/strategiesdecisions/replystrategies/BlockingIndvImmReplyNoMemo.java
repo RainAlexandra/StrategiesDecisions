@@ -22,13 +22,9 @@ public final class BlockingIndvImmReplyNoMemo implements IReplyStrategy {
 	
 	public BlockingIndvImmReplyNoMemo(String agent, LinkedList<Message> ads) {
 		this.agent = agent;
-		this.setAds(ads);
+		this.ads = ads;
 	}
 	
-	public List<Message> getAds() {
-		return ads;
-	}
-
 	public void setAds(List<Message> ads) {
 		this.ads = ads;
 	}

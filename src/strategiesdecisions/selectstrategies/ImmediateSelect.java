@@ -23,10 +23,6 @@ public class ImmediateSelect implements ISelectStrategy {
 		this.responses = responses;
 	}
 
-	public List<Message> getResponses() {
-		return responses;
-	}
-
 	public void setResponses(LinkedList<Message> responses){
 		this.responses = responses;
 	}
@@ -34,7 +30,7 @@ public class ImmediateSelect implements ISelectStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Select");
-//		List<Message> replies = comm.recevoirMessages(0); // destinataire = X
+
 //		String bestReply = best(replies);
 //		String bestTransmitter = bestReply.getTransmitter();
 		String bestTransmitter = "Y"; // to remove
@@ -43,8 +39,7 @@ public class ImmediateSelect implements ISelectStrategy {
 //		the binder will be created and initialized with the service of the advertising agent
 		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding request", 0);
 		Message selection = new Selection(agent, bestTransmitter, "Binder agent", "this is a selection message", 0);
-		
-//		comm.envoyerMessage(0, 1, selection);
+
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(selection);
 

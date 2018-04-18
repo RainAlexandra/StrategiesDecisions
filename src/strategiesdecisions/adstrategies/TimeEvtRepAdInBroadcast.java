@@ -1,5 +1,9 @@
 package strategiesdecisions.adstrategies;
 
+import java.util.List;
+
+import strategiesdecisions.Utility;
+import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -11,8 +15,27 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class TimeEvtRepAdInBroadcast implements IAdvertiseStrategy {
 
+	private String agent;
+	private int dt;
+	
+	public TimeEvtRepAdInBroadcast(String agent, int dt){
+		this.agent = agent;
+		this.dt = dt;
+	}
+	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("time-Event-Repeated-Ad-In-Broadcast");
+		
+		boolean event = false;
+		do {
+			// List<Message> msgs = agent.getReceivedMsgs();
+			List<Message> msgs = null; // to remove
+			event = Utility.findEvent(msgs);
+			dt--;
+			
+			// S <- S - SAD
+		} while (!event && dt > 0);
+		// S <- S
 	}
 }

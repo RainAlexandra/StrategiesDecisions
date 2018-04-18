@@ -23,11 +23,12 @@ public class TimeRepAdInBroadcast implements IAdvertiseStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("time-Repeated-Ad-In-Broadcast");
+		
 		Message ad = new Ad(agent, "", "this is an adevertisement", 0);
 		comm.diffuserMessage(ad);
 		while (dt > 0){
-			// S <- S - SAD
 			dt--;
+			// S <- S - SAD
 		}
 		// S <- S
 	}

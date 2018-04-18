@@ -39,6 +39,7 @@ public class SingleAdInMulticast implements IAdvertiseStrategy {
 			// String recipient = a.getID()
 			ad = new Ad(agent, a, "this is a multicast ad", 0);
 			comm.envoyerMessage(ad);
+			
 			// S <- S - SAD
 		}
 	}

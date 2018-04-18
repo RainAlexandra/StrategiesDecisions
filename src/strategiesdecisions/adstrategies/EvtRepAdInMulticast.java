@@ -1,6 +1,6 @@
 package strategiesdecisions.adstrategies;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import strategiesdecisions.Utility;
@@ -18,7 +18,7 @@ import strategiesdecisions.communication.ICommunication;
 public class EvtRepAdInMulticast implements IAdvertiseStrategy {
 
 	private String agent;
-	private List<String> targetAgents = new LinkedList<>();
+	private List<String> targetAgents = new ArrayList<>();
 	
 	// when initializing the SA2.3 strategy the list of agents is required for the multicast
 	public EvtRepAdInMulticast(String agent, String... targetAgents){
@@ -38,6 +38,7 @@ public class EvtRepAdInMulticast implements IAdvertiseStrategy {
 		
 		Message ad;
 		
+		// envoie aux agents
 		for (String a : targetAgents){
 			// String recipient = a.getID();
 			ad = new Ad(agent, a, "this is a multicast ad", 0);

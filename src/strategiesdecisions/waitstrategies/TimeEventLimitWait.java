@@ -1,6 +1,7 @@
 package strategiesdecisions.waitstrategies;
 
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -37,7 +38,8 @@ public class TimeEventLimitWait implements IWaitStrategy {
 			//
 			
 			// List<Message> msgs = agent.getReceivedMsgs();
-			event = Utility.findEvent(null);
+			List<Message> msgs = null; // to remove
+			event = Utility.findEvent(msgs);
 			dt--;
 			
 			// S <- SW2.1

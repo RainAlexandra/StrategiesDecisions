@@ -1,6 +1,7 @@
 package strategiesdecisions.waitstrategies;
 
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -35,7 +36,8 @@ public class EventWait implements IWaitStrategy {
 			//
 			
 			// List<Message> msgs = agent.getReceivedMsgs();
-			event = Utility.findEvent(null);
+			List<Message> msgs = null; // to remove
+			event = Utility.findEvent(msgs);
 			
 			// S <- SW2.1
 			

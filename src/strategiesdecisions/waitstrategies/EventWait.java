@@ -1,6 +1,10 @@
 package strategiesdecisions.waitstrategies;
 
-import strategiesdecisions.communication.ICommunication;
+import java.util.Map;
+import java.util.TreeSet;
+
+import strategiesdecisions.beans.Message;
+import strategiesdecisions.beans.MessageType;
 
 /**
  * <b>SW2.1</b> - SN XOR SW1.1 XOR SW1.2
@@ -10,5 +14,5 @@ import strategiesdecisions.communication.ICommunication;
 public class EventWait implements IWaitStrategy {
 	
 	@Override
-	public void executer(ICommunication comm){}
+	public Map<MessageType, TreeSet<Message>> executer(){return null;}
 }

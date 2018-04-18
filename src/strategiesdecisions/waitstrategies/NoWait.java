@@ -1,6 +1,10 @@
 package strategiesdecisions.waitstrategies;
 
-import strategiesdecisions.communication.ICommunication;
+import java.util.Map;
+import java.util.TreeSet;
+
+import strategiesdecisions.beans.Message;
+import strategiesdecisions.beans.MessageType;
 
 /**
  * <b>SN (SWA)</b> - The agent does not take on any action regardless of 
@@ -11,5 +15,5 @@ import strategiesdecisions.communication.ICommunication;
 public class NoWait implements IWaitStrategy {
 
 	@Override
-	public void executer(ICommunication comm){}
+	public Map<MessageType, TreeSet<Message>> executer(){return null;}
 }

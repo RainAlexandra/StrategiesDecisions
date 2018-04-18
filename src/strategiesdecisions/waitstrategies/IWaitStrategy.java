@@ -1,12 +1,13 @@
 package strategiesdecisions.waitstrategies;
 
 import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeSet;
 
 import strategiesdecisions.beans.Message;
 import strategiesdecisions.beans.MessageType;
 import strategiesdecisions.beans.Binding;
 import strategiesdecisions.beans.Selection;
-import strategiesdecisions.communication.ICommunication;
 
 /**
  * <b>SWA</b> - The Wait strategies depend on whether or not all messages are saved or just 
@@ -75,5 +76,5 @@ public interface IWaitStrategy {
 		}
 	}
 		
-	public void executer(ICommunication comm);
+	public Map<MessageType, TreeSet<Message>> executer();
 }

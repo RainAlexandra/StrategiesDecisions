@@ -1,12 +1,12 @@
 package strategiesdecisions.waitstrategies;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
-
 import java.util.Set;
 
-import strategiesdecisions.communication.ICommunication;
 import strategiesdecisions.beans.*;
 
 /**
@@ -17,48 +17,19 @@ import strategiesdecisions.beans.*;
  */
 public class Wait implements IWaitStrategy {
 	
-//	private enum MessageType { AD, RESPONSE, SELECTION, OTHER }
-	
-//	private class MessageComparator implements Comparator<Message> {
-//		@Override
-//		public int compare(Message msg1, Message msg2) {
-//			int compSeqNum = 0;
-//			Integer seqNumMsg1 = msg1.getSeqNum();
-//			Integer seqNumMsg2 = msg2.getSeqNum();
-//			compSeqNum = seqNumMsg1.compareTo(seqNumMsg2); // the latest or the oldest???
-//			if (compSeqNum != 0) return compSeqNum;
-//			
-//			int compTrans = 0;
-//			String transMsg1 = msg1.getTransmitter();
-//			String transMsg2 = msg2.getTransmitter();
-//			compTrans = transMsg1.compareTo(transMsg2);
-//			if (compTrans != 0) return compTrans;
-//			
-//			int compRec = 0;
-//			String recMsg1 = msg1.getRecipient();
-//			String recMsg2 = msg2.getRecipient();
-//			compTrans = recMsg1.compareTo(recMsg2);
-//			if (compRec != 0) return compRec;
-//			
-//			int compContents = 0;
-//			String contMsg1 = msg1.getContents();
-//			String contMsg2 = msg2.getContents();
-//			compContents = contMsg1.compareTo(contMsg2);			
-//			return compContents;
-//		}
-//	}
-//	
+	private String agent;
 	private Map<MessageType, TreeSet<Message>> messages = new EnumMap<>(MessageType.class);
 	
-	public void setMessages(EnumMap<MessageType, TreeSet<Message>> messages) {
-		this.messages = messages;
-	}
-
-	public Wait(){
+	public Wait(String agent){
+		this.agent = agent;
 		messages.put(MessageType.AD, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.RESPONSE, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.SELECTION, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.OTHER, new TreeSet<>(new MessageComparator()));
+	}
+
+	public void setMessages(EnumMap<MessageType, TreeSet<Message>> messages) {
+		this.messages = messages;
 	}
 
 	private String printMsgs(Map<MessageType, TreeSet<Message>> msgs){
@@ -75,16 +46,36 @@ public class Wait implements IWaitStrategy {
 	}
 	
 	@Override
-	public void executer(ICommunication comm){
+	public Map<MessageType, TreeSet<Message>> executer(){
 		System.out.println("wait");
-		TreeSet<Message> ads = messages.get(MessageType.AD);
-		TreeSet<Message> responses = messages.get(MessageType.RESPONSE);
-		Message ad1 = new Ad("1", "1", "contents for an ad", 0);
-		Message ad2 = new Ad("0", "1", "a test ad", 2);
-		Message resp = new Response("1", "0", "i am a reply", 0);
-		ads.add(ad1);
-		ads.add(ad2);
-		responses.add(resp);
+		
+//		lorsque l'agent recoit les messages on les sauvegarde selon leur type
+		boolean wait = true;
+		while (wait){
+			// recuperation de chaque message recu par l'agent
+			// List<Message> msgs = agent.getReceivedMsgs();
+			
+			// TESTS
+			Message ad1 = new Ad("1", "1", "contents for an ad", 0);
+			Message ad2 = new Ad("0", "1", "a test ad", 2);
+			Message resp = new Response("1", "0", "i am a reply", 0);
+			List<Message> msgs = new ArrayList<>();
+			msgs.add(ad1); msgs.add(ad2); msgs.add(resp);
+			
+			for (Message m : msgs){
+				if (m.getMsgType() == MessageType.AD)
+					messages.get(MessageType.AD).add(m);
+				else if (m.getMsgType() == MessageType.RESPONSE)
+					messages.get(MessageType.RESPONSE).add(m);
+				else if (m.getMsgType() == MessageType.SELECTION)
+					messages.get(MessageType.SELECTION).add(m);
+				else
+					messages.get(MessageType.OTHER).add(m);
+			}
+			wait = !wait;
+		}
 		System.out.println(printMsgs(messages));
+		
+		return messages;
 	}
 }

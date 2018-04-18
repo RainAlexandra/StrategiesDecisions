@@ -28,7 +28,7 @@ public class TimeRepAdInMulticast implements IAdvertiseStrategy {
 		}
 	}
 	
-	public void setAgents(List<String> agents) {
+	public void setTargetAgents(List<String> agents) {
 		this.targetAgents = agents;
 	}
 	

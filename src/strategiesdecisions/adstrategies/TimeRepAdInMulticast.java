@@ -3,7 +3,6 @@ package strategiesdecisions.adstrategies;
 import java.util.ArrayList;
 import java.util.List;
 
-import strategiesdecisions.Utility;
 import strategiesdecisions.beans.Ad;
 import strategiesdecisions.beans.Message;
 import strategiesdecisions.communication.ICommunication;

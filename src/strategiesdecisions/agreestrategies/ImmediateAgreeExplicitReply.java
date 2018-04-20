@@ -2,7 +2,6 @@ package strategiesdecisions.agreestrategies;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import strategiesdecisions.communication.ICommunication;
 import strategiesdecisions.beans.*;
@@ -16,15 +15,15 @@ import strategiesdecisions.beans.*;
  */
 public class ImmediateAgreeExplicitReply implements IAgreeStrategy {
 	
-	String agent;
+	private String agent;
 	private List<Message> selections;
 	
-	public ImmediateAgreeExplicitReply(String agent, LinkedList<Message> selections){
+	public ImmediateAgreeExplicitReply(String agent, ArrayList<Message> selections){
 		this.agent = agent;
 		this.selections = selections;
 	}
 		
-	public void setSelections(List<Message> selections) {
+	public void setSelections(ArrayList<Message> selections) {
 		this.selections = selections;
 	}
 	
@@ -45,24 +44,26 @@ public class ImmediateAgreeExplicitReply implements IAgreeStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Explicit-Response");
-//		Selection bestSelection = best(selections)
-//		String refBinder = bestSelection.getBinder();
-//		String selectionTransmitter = bestSelection.getTransmitter();
-//		ArrayList<String> rejects = getRejectedSelectionTransmitters(selectionTransmitter);
 		
-		String refBinder = "Binder agent"; // to remove
-		String selectionTransmitter = "X"; // to remove
+//		Message bestSelection = best(selections)
+		Message bestSelection = selections.get(0); // to remove
+		String refBinder = ((Selection) bestSelection).getBinder();
+		String selectionTransmitter = bestSelection.getTransmitter();
+		ArrayList<String> rejects = getRejectedSelectionTransmitters(selectionTransmitter);
 		
 		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
 		Message agreement = new Agreement(agent, selectionTransmitter, "Agree", 0);
 
 //		No agree message sent to all rejects
-//		Message noAgreement;		
-//		for (String reject : rejects){
-//			noAgreement = new Agreement(agent, reject, "No Agree", 0);
-//			comm.envoyerMessage(noAgreement);
-//		}
+		Message noAgreement;		
+		for (String reject : rejects){
+			noAgreement = new Agreement(agent, reject, "No Agree", 0);
+			comm.envoyerMessage(noAgreement);
+		}
+		
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(agreement);
+		
+		// S <- SN, SWA
 	}
 }

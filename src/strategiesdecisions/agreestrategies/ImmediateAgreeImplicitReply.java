@@ -1,10 +1,11 @@
 package strategiesdecisions.agreestrategies;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import strategiesdecisions.beans.Binding;
 import strategiesdecisions.beans.Message;
+import strategiesdecisions.beans.Selection;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -18,20 +19,22 @@ public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 	private String agent;
 	private List<Message> selections;
 	
-	public ImmediateAgreeImplicitReply(String agent, LinkedList<Message> selections) {
+	public ImmediateAgreeImplicitReply(String agent, ArrayList<Message> selections) {
+		this.agent = agent;
 		this.selections = selections;
 	}
 
-	public void setSelections(LinkedList<Message> selections){
+	public void setSelections(ArrayList<Message> selections){
 		this.selections = selections;
 	}
 	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Agreement-Implicit-Response");
-//		Selection bestSelection = best(selections)
-//		String refBinder = bestSelection.getBinder();
-		String refBinder = "Binder agent"; // to remove
+
+//		Message bestSelection = best(selections);
+		Message bestSelection = selections.get(0); // to remove
+		String refBinder = ((Selection) bestSelection).getBinder();
 		
 		Message binding = new Binding(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
 		comm.envoyerMessage(binding);

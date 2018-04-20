@@ -1,6 +1,6 @@
 package strategiesdecisions.replystrategies;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import strategiesdecisions.communication.ICommunication;
@@ -15,10 +15,14 @@ import strategiesdecisions.beans.*;
 public class NonBlockingIndvImmReply implements IReplyStrategy {
 	
 	private String agent;
-	private List<Message> ads;
+	List<Message> ads;
 	
-	public NonBlockingIndvImmReply(String agent, LinkedList<Message> ads) {
+	public NonBlockingIndvImmReply(String agent, ArrayList<Message> ads) {
 		this.agent = agent;
+		this.ads = ads;
+	}
+	
+	public void setAds(List<Message> ads){
 		this.ads = ads;
 	}
 
@@ -26,8 +30,8 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 	public void executer(ICommunication comm){
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
 //		Message bestAd = best(ads);
-//		String bestTransmitter = bestAd.getTransmitter();
-		String bestTransmitter = "X"; // to remove
+		Message bestAd = ads.get(0); // to remove
+		String bestTransmitter = bestAd.getTransmitter();
 		
 		Message reply = new Response(agent, bestTransmitter, "this is a reply message", 0);
 		

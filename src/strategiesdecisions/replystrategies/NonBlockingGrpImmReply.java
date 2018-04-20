@@ -17,16 +17,12 @@ public class NonBlockingGrpImmReply implements IReplyStrategy {
 	private String agent;
 	private List<Message> ads;
 	
-	public NonBlockingGrpImmReply(String agent, LinkedList<Message> ads) {
+	public NonBlockingGrpImmReply(String agent, ArrayList<Message> ads) {
 		this.agent = agent;
 		this.ads = ads;
 	}
-
-	public List<Message> getAds(){
-		return ads;
-	}
 	
-	public void setAds(LinkedList<Message> ads) {
+	public void setAds(ArrayList<Message> ads) {
 		this.ads = ads;
 	}
 	

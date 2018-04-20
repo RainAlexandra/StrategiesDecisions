@@ -24,7 +24,7 @@ public class TimeRepAdInBroadcast implements IAdvertiseStrategy {
 	public void executer(ICommunication comm){
 		System.out.println("time-Repeated-Ad-In-Broadcast");
 		
-		Message ad = new Ad(agent, "", "this is an adevertisement", 0);
+		Message ad = new Ad(agent, "this is an adevertisement", 0);
 		comm.diffuserMessage(ad);
 		while (dt > 0){
 			dt--;

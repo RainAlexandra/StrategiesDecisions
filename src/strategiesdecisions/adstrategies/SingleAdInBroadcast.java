@@ -21,7 +21,7 @@ public class SingleAdInBroadcast implements IAdvertiseStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("single-Ad-In-Broadcast");
-		Message ad = new Ad(agent, "", "this is an advertisement", 0);
+		Message ad = new Ad(agent, "this is an advertisement", 0);
 		comm.diffuserMessage(ad);
 //		S <- S - SAD
 	}

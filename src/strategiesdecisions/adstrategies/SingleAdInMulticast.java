@@ -29,19 +29,23 @@ public class SingleAdInMulticast implements IAdvertiseStrategy {
 	public void setTargetAgents(List<String> agents) {
 		this.targetAgents = agents;
 	}
+	
+	public List<String> getTargetAgents() {
+		return targetAgents;
+	}
 
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("single-Ad-In-Multicast");
 		Message ad;
+		int seqNum = 0; // ca dependera des messages envoyés par l'agent
 		
 		// envoie aux agents
 		for (String a : targetAgents){
 			// String recipient = a.getID()
-			ad = new Ad(agent, a, "this is a multicast ad", 0);
+			ad = new Ad(agent, a, "this is a multicast ad", seqNum++);
 			comm.envoyerMessage(ad);
-			
-			// S <- S - SAD
 		}
+		// S <- S - SAD
 	}
 }

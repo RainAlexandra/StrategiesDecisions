@@ -1,5 +1,6 @@
 package strategiesdecisions.replystrategies;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,7 +39,6 @@ public class NonBlockingGrpImmReply implements IReplyStrategy {
 		/*for (Agent a : grpOfSenders){
 			reply = new Response(agent, a, "this is a reply msg", seqNum);
 			comm.envoyerMessage(reply);
-			// a chaque tour de boucle seqNum++
 		}*/
 		
 		// S <- S

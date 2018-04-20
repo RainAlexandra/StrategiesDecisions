@@ -1,13 +1,12 @@
 package strategiesdecisions.selectstrategies;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import strategiesdecisions.beans.Binding;
 import strategiesdecisions.beans.Message;
 import strategiesdecisions.beans.Selection;
 import strategiesdecisions.communication.ICommunication;
-import strategiesdecisions.replystrategies.NoReply;
 
 /**
  * <b>SSlc2</b> - Agent "X" does not immediately Select a reply. It waits for 
@@ -23,13 +22,13 @@ public class DeferredSelect implements ISelectStrategy {
 	private List<Message> responses;
 	private int dt;
 	
-	public DeferredSelect(String agent, LinkedList<Message> responses, int dt) {
+	public DeferredSelect(String agent,ArrayList<Message> responses, int dt) {
 		this.agent = agent;
 		this.responses = responses;
 		this.dt = dt;
 	}
 
-	public void setResponses(List<Message> responses) {
+	public void setResponses(ArrayList<Message> responses) {
 		this.responses = responses;
 	}
 	
@@ -38,7 +37,6 @@ public class DeferredSelect implements ISelectStrategy {
 		System.out.println("deferred-Select");
 		
 		while (dt > 0){
-			(new NoSelect()).executer(comm); // on ne fait rien
 			// responses <- responses U {r} pour toute reponse r
 			// S <- S - SSL
 			dt--;

@@ -1,7 +1,7 @@
 package strategiesdecisions.selectstrategies;
 
 import java.util.List;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import strategiesdecisions.beans.*;
 
@@ -18,12 +18,12 @@ public class ImmediateSelect implements ISelectStrategy {
 	private String agent;
 	private List<Message> responses;
 	
-	public ImmediateSelect(String agent, LinkedList<Message> responses){
+	public ImmediateSelect(String agent, ArrayList<Message> responses){
 		this.agent = agent;
 		this.responses = responses;
 	}
 
-	public void setResponses(LinkedList<Message> responses){
+	public void setResponses(ArrayList<Message> responses){
 		this.responses = responses;
 	}
 	
@@ -31,9 +31,9 @@ public class ImmediateSelect implements ISelectStrategy {
 	public void executer(ICommunication comm){
 		System.out.println("immediate-Select");
 
-//		String bestReply = best(replies);
-//		String bestTransmitter = bestReply.getTransmitter();
-		String bestTransmitter = "Y"; // to remove
+//		Message bestReply = best(replies);
+		Message bestReply = responses.get(0); // to remove
+		String bestTransmitter = bestReply.getTransmitter();
 		String refBinder = "Binder agent"; // to remove
 		
 //		the binder will be created and initialized with the service of the advertising agent

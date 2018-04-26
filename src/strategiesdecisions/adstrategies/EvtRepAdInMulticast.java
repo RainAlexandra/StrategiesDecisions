@@ -32,6 +32,10 @@ public class EvtRepAdInMulticast implements IAdvertiseStrategy {
 		this.targetAgents = agents;
 	}
 	
+	public List<String> getTargetAgents() {
+		return targetAgents;
+	}
+	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("event-Repeated-Ad-In-Multicast");

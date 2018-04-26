@@ -22,7 +22,7 @@ public class DeferredSelect implements ISelectStrategy {
 	private List<Message> responses;
 	private int dt;
 	
-	public DeferredSelect(String agent,ArrayList<Message> responses, int dt) {
+	public DeferredSelect(String agent, ArrayList<Message> responses, int dt) {
 		this.agent = agent;
 		this.responses = responses;
 		this.dt = dt;
@@ -36,15 +36,18 @@ public class DeferredSelect implements ISelectStrategy {
 	public void executer(ICommunication comm){
 		System.out.println("deferred-Select");
 		
+		System.out.println("Wait for " + dt + " cycles");
 		while (dt > 0){
 			// responses <- responses U {r} pour toute reponse r
 			// S <- S - SSL
 			dt--;
 		}
-		
-//		String bestReply = best(replies);
-//		String bestTransmitter = bestReply.getTransmitter();
-		String bestTransmitter = "Y"; // to remove
+		System.out.println("Wait over.");
+				
+//		setResponses(agent.getResponses);
+//		Message bestReply = best(responses);
+		Message bestReply = responses.get(0); // to remove
+		String bestTransmitter = bestReply.getTransmitter();
 		String refBinder = "Binder agent"; // to remove
 		
 //		the binder will be created and initialized with the service of the advertising agent

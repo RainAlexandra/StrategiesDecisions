@@ -1,6 +1,6 @@
 package strategiesdecisions.replystrategies;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import strategiesdecisions.beans.Message;
@@ -19,7 +19,7 @@ public class BlockingIndvImmReplyImprovedMemo implements IReplyStrategy {
 	private String agent;
 	private List<Message> ads;
 	
-	public BlockingIndvImmReplyImprovedMemo(String agent, LinkedList<Message> ads) {
+	public BlockingIndvImmReplyImprovedMemo(String agent, ArrayList<Message> ads) {
 		this.agent = agent;
 		this.ads = ads;
 	}
@@ -33,8 +33,8 @@ public class BlockingIndvImmReplyImprovedMemo implements IReplyStrategy {
 		System.out.println("blocking-Targeted-Immediate-Response-Improved-Memorization");
 	
 //		Message bestAd = best(ads);
-//		String bestTransmitter = bestAd.getTransmitter();
-		String bestTransmitter = "X";
+		Message bestAd = ads.get(0); // to remove
+		String bestTransmitter = bestAd.getTransmitter();
 		
 		Message reply = new Response(agent, bestTransmitter, "this is a reply message", 0);
 		

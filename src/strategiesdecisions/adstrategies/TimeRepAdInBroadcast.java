@@ -26,10 +26,14 @@ public class TimeRepAdInBroadcast implements IAdvertiseStrategy {
 		
 		Message ad = new Ad(agent, "this is an adevertisement", 0);
 		comm.diffuserMessage(ad);
+		
+		System.out.println("No ad strategies by " + agent + " for " + dt + " cycles");
 		while (dt > 0){
 			dt--;
 			// S <- S - SAD
 		}
+		System.out.println(agent + " can repeat an ad strategy");
+		
 		// S <- S
 	}
 }

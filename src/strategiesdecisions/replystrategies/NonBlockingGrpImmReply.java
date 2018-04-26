@@ -33,6 +33,8 @@ public class NonBlockingGrpImmReply implements IReplyStrategy {
 		
 		// how big is the group?
 		// grpOfSenders = bestAds(ads);
+		Message aGoodMsg = ads.get(0); // to remove
+		String aGoodAgent = aGoodMsg.getRecipient();
 		
 //		Message reply;
 		

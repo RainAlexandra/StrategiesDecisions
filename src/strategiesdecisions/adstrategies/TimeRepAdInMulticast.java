@@ -32,23 +32,30 @@ public class TimeRepAdInMulticast implements IAdvertiseStrategy {
 		this.targetAgents = agents;
 	}
 	
+	public List<String> getTargetAgents() {
+		return targetAgents;
+	}
+	
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("time-Repeated-Ad-In-Multicast");
 	
 		Message ad; 
 		
-		// envoie aux agents
+		// send to agents
 		for (String a : targetAgents){
 			// String recipient = a.getID();
 			ad = new Ad(agent, a, "this is a multicast ad", 0);
 			comm.envoyerMessage(ad);
 		}
 		
+		System.out.println("No ad strategies by " + agent + " for " + dt + " cycles");
 		while (dt > 0){
 			dt --;
 			// S <- S - SAD
 		}
+		System.out.println(agent + " can repeat an ad strategy");
+		
 		// S <- S
 	}
 }

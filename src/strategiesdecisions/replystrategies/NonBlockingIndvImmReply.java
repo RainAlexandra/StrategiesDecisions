@@ -15,7 +15,7 @@ import strategiesdecisions.beans.*;
 public class NonBlockingIndvImmReply implements IReplyStrategy {
 	
 	private String agent;
-	List<Message> ads;
+	private List<Message> ads;
 	
 	public NonBlockingIndvImmReply(String agent, ArrayList<Message> ads) {
 		this.agent = agent;
@@ -29,6 +29,7 @@ public class NonBlockingIndvImmReply implements IReplyStrategy {
 	@Override
 	public void executer(ICommunication comm){
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
+
 //		Message bestAd = best(ads);
 		Message bestAd = ads.get(0); // to remove
 		String bestTransmitter = bestAd.getTransmitter();

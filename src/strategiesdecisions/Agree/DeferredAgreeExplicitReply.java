@@ -1,11 +1,15 @@
 package strategiesdecisions.Agree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.AgreementMessage;
 import strategiesdecisions.Message.BindingMessage;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
+import strategiesdecisions.Message.SelectionMessage;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -18,22 +22,36 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class DeferredAgreeExplicitReply implements IAgreeStrategy {
 	
-	private String agent;
-	private List<MessageAgent> selections;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> selections;
 	private int dt;
 	
-	public DeferredAgreeExplicitReply(String agent, LinkedList<MessageAgent> selections, int dt) {
+	public DeferredAgreeExplicitReply(ReferenceAgent agent, ArrayList<MessageAgent> selections, int dt) {
 		this.agent = agent;
 		this.selections = selections;
 		this.dt = dt;
 	}
 	
-	public void setSelections(List<MessageAgent> selections) {
+	public void setSelections(ArrayList<MessageAgent> selections) {
 		this.selections = selections;
+	}
+	
+	/**
+	 * @param selectedTransmitter the transmitter whose message was selected
+	 * @return the list of rejected selection transmitters
+	 */
+	private ArrayList<ReferenceAgent> getRejectedSelectionTransmitters(ReferenceAgent selectedTransmitter){
+		ArrayList<ReferenceAgent> rejectedTransmitters = new ArrayList<>();
+		for (MessageAgent m : selections){
+			ReferenceAgent transmitter = m.getExpediteur();
+			if (! transmitter.equals(selectedTransmitter))
+				rejectedTransmitters.add(transmitter);
+		}
+		return rejectedTransmitters;
 	}
 
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("deferred-Agreement-Explicit-Response");
 	
 		while (dt > 0){
@@ -42,23 +60,22 @@ public class DeferredAgreeExplicitReply implements IAgreeStrategy {
 			dt--;
 		}
 
-//		Selection bestSelection = best(selections)
-//		String refBinder = bestSelection.getBinder();
-//		String selectionTransmitter = bestSelection.getTransmitter();
-//		ArrayList<String> rejects = getRejectedSelectionTransmitters(selectionTransmitter);
+//		MessageAgent bestSelection = best(selections)
+		MessageAgent bestSelection = selections.get(0); // to remove
+		ReferenceAgent refBinder = ((SelectionMessage)bestSelection).getAgentBinder();
+		ReferenceAgent selectionTransmitter = bestSelection.getExpediteur();
+		ArrayList<ReferenceAgent> rejects = getRejectedSelectionTransmitters(selectionTransmitter);
+				
+		MessageAgent binding = new BindingMessage("", "", "", "", 0);
 		
-		String refBinder = "Binder agent"; // to remove
-		String selectionTransmitter = "X"; // to remove
-		
-		MessageAgent binding = new BindingMessage(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
-		MessageAgent agreement = new AgreementMessage(agent, selectionTransmitter, "Agree", 0);
+		ArrayList<ReferenceAgent> recipient = new ArrayList<>();
+		recipient.add(selectionTransmitter);
+		MessageAgent agreement = new AgreementMessage(service, agent, recipient);
 
 //		No agree message sent to all rejects
-//		Message noAgreement;		
-//		for (String reject : rejects){
-//			noAgreement = new Agreement(agent, reject, "No Agree", 0);
-//			comm.envoyerMessage(noAgreement);
-//		}
+		MessageAgent noAgreement = new AgreementMessage(service, agent, rejects);
+		
+		comm.envoyerMessage(noAgreement);
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(agreement);
 		

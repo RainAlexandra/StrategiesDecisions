@@ -1,5 +1,6 @@
 package strategiesdecisions.Select;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -11,5 +12,7 @@ import strategiesdecisions.communication.ICommunication;
 public class NoSelect implements ISelectStrategy {
 	
 	@Override
-	public void executer(ICommunication comm){}
+	public void executer(ICommunication comm, OCService service){
+		System.out.println("This is No Select strategy");
+	}
 }

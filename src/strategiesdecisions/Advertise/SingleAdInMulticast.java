@@ -1,10 +1,11 @@
 package strategiesdecisions.Advertise;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.AdMessage;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -15,36 +16,32 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class SingleAdInMulticast implements IAdvertiseStrategy {
 	
-	private String agent;
-	private List<String> targetAgents = new ArrayList<>();
+	private ReferenceAgent agent;
+	private ArrayList<ReferenceAgent> targetAgents = new ArrayList<>();
 
 	// when initializing the SA2.1 strategy the list of agents is required for the multicast
-	public SingleAdInMulticast(String agent, String... targetAgents){
+	public SingleAdInMulticast(ReferenceAgent agent, ReferenceAgent... targetAgents){
 		this.agent = agent;
-		for (String a : targetAgents){
+		for (ReferenceAgent a : targetAgents){
 			this.targetAgents.add(a);
 		}
 	}
 
-	public void setTargetAgents(List<String> agents) {
+	public void setTargetAgents(ArrayList<ReferenceAgent> agents) {
 		this.targetAgents = agents;
 	}
 	
-	public List<String> getTargetAgents() {
+	public ArrayList<ReferenceAgent> getTargetAgents() {
 		return targetAgents;
 	}
 
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("single-Ad-In-Multicast");
-		MessageAgent ad;
 		
-		// envoie aux agents
-		for (String a : targetAgents){
-			// String recipient = a.getID()
-			ad = new AdMessage(agent, a, "this is a multicast ad", 0);
-			comm.envoyerMessage(ad);
-		}
+		MessageAgent ad = new AdMessage(service, agent, targetAgents);
+		comm.diffuserMessage(ad);
+		
 		// S <- S - SAD
 	}
 }

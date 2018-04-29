@@ -1,6 +1,9 @@
 package strategiesdecisions.Select;
 
 import java.util.List;
+
+import OCPlateforme.OCService;
+
 import java.util.ArrayList;
 
 import strategiesdecisions.Message.*;
@@ -14,10 +17,10 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class ImmediateSelect implements ISelectStrategy {
 	
-	private String agent;
-	private List<MessageAgent> responses;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> responses;
 	
-	public ImmediateSelect(String agent, ArrayList<MessageAgent> responses){
+	public ImmediateSelect(ReferenceAgent agent, ArrayList<MessageAgent> responses){
 		this.agent = agent;
 		this.responses = responses;
 	}
@@ -27,17 +30,20 @@ public class ImmediateSelect implements ISelectStrategy {
 	}
 	
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("immediate-Select");
 
 //		Message bestReply = best(replies);
 		MessageAgent bestReply = responses.get(0); // to remove
-		String bestTransmitter = bestReply.getTransmitter();
-		String refBinder = "Binder agent"; // to remove
+		ReferenceAgent bestTransmitter = bestReply.getExpediteur();
+		ReferenceAgent refBinder = new ReferenceAgent(); // to remove
 		
 //		the binder will be created and initialized with the service of the advertising agent
-		MessageAgent binding = new BindingMessage(agent, refBinder, "serviceRef_" + agent, "this is a binding request", 0);
-		MessageAgent selection = new SelectionMessage(agent, bestTransmitter, "Binder agent", "this is a selection message", 0);
+		MessageAgent binding = new BindingMessage("", "", "", "", 0);
+		
+		ArrayList<ReferenceAgent> recipient = new ArrayList<>();
+		recipient.add(bestTransmitter);
+		MessageAgent selection = new SelectionMessage(service, agent, recipient);
 
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(selection);

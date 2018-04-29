@@ -3,8 +3,10 @@ package strategiesdecisions.Agree;
 import java.util.ArrayList;
 import java.util.List;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.BindingMessage;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.Message.SelectionMessage;
 import strategiesdecisions.communication.ICommunication;
 
@@ -16,10 +18,10 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 	
-	private String agent;
-	private List<MessageAgent> selections;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> selections;
 	
-	public ImmediateAgreeImplicitReply(String agent, ArrayList<MessageAgent> selections) {
+	public ImmediateAgreeImplicitReply(ReferenceAgent agent, ArrayList<MessageAgent> selections) {
 		this.agent = agent;
 		this.selections = selections;
 	}
@@ -29,14 +31,14 @@ public class ImmediateAgreeImplicitReply implements IAgreeStrategy {
 	}
 	
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("immediate-Agreement-Implicit-Response");
 
 //		Message bestSelection = best(selections);
 		MessageAgent bestSelection = selections.get(0); // to remove
-		String refBinder = ((SelectionMessage) bestSelection).getBinder();
+		ReferenceAgent refBinder = ((SelectionMessage) bestSelection).getAgentBinder();
 		
-		MessageAgent binding = new BindingMessage(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
+		MessageAgent binding = new BindingMessage("", "", "", "", 0);
 		comm.envoyerMessage(binding);
 		
 		// S <- SN, SWA

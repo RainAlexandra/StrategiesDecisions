@@ -13,7 +13,6 @@ public class NoAdvertise implements IAdvertiseStrategy {
 
 	@Override
 	public void executer(ICommunication comm, OCService service){
-		
-		System.out.println("This is No Advertise Strategy !");
+		System.out.println("This is No Advertise Strategy!");
 	}
 }

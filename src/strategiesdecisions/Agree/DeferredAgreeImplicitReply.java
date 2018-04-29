@@ -1,11 +1,12 @@
 package strategiesdecisions.Agree;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.BindingMessage;
 import strategiesdecisions.Message.MessageAgent;
-import strategiesdecisions.Reply.NoReply;
+import strategiesdecisions.Message.ReferenceAgent;
+import strategiesdecisions.Message.SelectionMessage;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -17,32 +18,32 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class DeferredAgreeImplicitReply implements IAgreeStrategy {
 	
-	private String agent;
-	private List<MessageAgent> selections;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> selections;
 	private int dt;
 	
-	public DeferredAgreeImplicitReply(LinkedList<MessageAgent> selections) {
+	public DeferredAgreeImplicitReply(ArrayList<MessageAgent> selections) {
 		this.selections = selections;
 	}
 
-	public void setSelections(LinkedList<MessageAgent> selections){
+	public void setSelections(ArrayList<MessageAgent> selections){
 		this.selections = selections;
 	}
 	
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("deferred-Agreement-Implicit-Response");
 
 		while (dt > 0){
-			(new NoReply()).executer(comm); // on ne fait rien
+			// on ne fait rien
 			dt--;
 		}
 		
-//		Selection bestSelection = best(selections)
-//		String refBinder = bestSelection.getBinder();
-		String refBinder = "Binder agent"; // to remove
+//		MessageAgent bestSelection = best(selections)
+		MessageAgent bestSelection = selections.get(0); // to remove
+		ReferenceAgent refBinder = ((SelectionMessage)bestSelection).getAgentBinder();
 		
-		MessageAgent binding = new BindingMessage(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
+		MessageAgent binding = new BindingMessage("", "", "", "", 0);
 		comm.envoyerMessage(binding);
 		
 		// S <- SN, SWA

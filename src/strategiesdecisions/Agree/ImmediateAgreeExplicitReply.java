@@ -1,8 +1,8 @@
 package strategiesdecisions.Agree;
 
-import java.util.List;
 import java.util.ArrayList;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.*;
 import strategiesdecisions.communication.ICommunication;
 
@@ -15,10 +15,10 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class ImmediateAgreeExplicitReply implements IAgreeStrategy {
 	
-	private String agent;
-	private List<MessageAgent> selections;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> selections;
 	
-	public ImmediateAgreeExplicitReply(String agent, ArrayList<MessageAgent> selections){
+	public ImmediateAgreeExplicitReply(ReferenceAgent agent, ArrayList<MessageAgent> selections){
 		this.agent = agent;
 		this.selections = selections;
 	}
@@ -31,36 +31,35 @@ public class ImmediateAgreeExplicitReply implements IAgreeStrategy {
 	 * @param selectedTransmitter the transmitter whose message was selected
 	 * @return the list of rejected selection transmitters
 	 */
-	private ArrayList<String> getRejectedSelectionTransmitters(String selectedTransmitter){
-		ArrayList<String> rejectedTransmitters = new ArrayList<>();
+	private ArrayList<ReferenceAgent> getRejectedSelectionTransmitters(ReferenceAgent selectedTransmitter){
+		ArrayList<ReferenceAgent> rejectedTransmitters = new ArrayList<>();
 		for (MessageAgent m : selections){
-			String transmitter = m.getTransmitter();
-			if (transmitter.compareTo(selectedTransmitter) != 0)
+			ReferenceAgent transmitter = m.getExpediteur();
+			if (! transmitter.equals(selectedTransmitter))
 				rejectedTransmitters.add(transmitter);
 		}
 		return rejectedTransmitters;
 	}
 	
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("immediate-Agreement-Explicit-Response");
 		
-//		Message bestSelection = best(selections)
+//		MessageAgent bestSelection = best(selections)
 		MessageAgent bestSelection = selections.get(0); // to remove
-		String refBinder = ((SelectionMessage) bestSelection).getBinder();
-		String selectionTransmitter = bestSelection.getTransmitter();
-		ArrayList<String> rejects = getRejectedSelectionTransmitters(selectionTransmitter);
+		ReferenceAgent refBinder = ((SelectionMessage) bestSelection).getAgentBinder();
+		ReferenceAgent selectionTransmitter = bestSelection.getExpediteur();
+		ArrayList<ReferenceAgent> rejects = getRejectedSelectionTransmitters(selectionTransmitter);
 		
-		MessageAgent binding = new BindingMessage(agent, refBinder, "serviceRef_" + agent, "this is a binding agreement", 0);
-		MessageAgent agreement = new AgreementMessage(agent, selectionTransmitter, "Agree", 0);
+		MessageAgent binding = new BindingMessage("", "", "", "", 0);
+		
+		ArrayList<ReferenceAgent> recipient = new ArrayList<>();
+		recipient.add(selectionTransmitter);
+		MessageAgent agreement = new AgreementMessage(service, agent, recipient);
 
 //		No agree message sent to all rejects
-		MessageAgent noAgreement;		
-		for (String reject : rejects){
-			noAgreement = new AgreementMessage(agent, reject, "No Agree", 0);
-			comm.envoyerMessage(noAgreement);
-		}
-		
+		MessageAgent noAgreement = new AgreementMessage(service, agent, rejects);		
+		comm.envoyerMessage(noAgreement);
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(agreement);
 		

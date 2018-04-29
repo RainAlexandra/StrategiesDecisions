@@ -1,10 +1,10 @@
 package strategiesdecisions.Reply;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
 //import strategiesdecisions.beans.Response;
 import strategiesdecisions.communication.ICommunication;
 
@@ -15,10 +15,10 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class NonBlockingGrpImmReply implements IReplyStrategy {
 	
-	private String agent;
-	private List<MessageAgent> ads;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> ads;
 	
-	public NonBlockingGrpImmReply(String agent, ArrayList<MessageAgent> ads) {
+	public NonBlockingGrpImmReply(ReferenceAgent agent, ArrayList<MessageAgent> ads) {
 		this.agent = agent;
 		this.ads = ads;
 	}
@@ -28,7 +28,7 @@ public class NonBlockingGrpImmReply implements IReplyStrategy {
 	}
 	
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("non-Blocking-Immediate-Grouped-Response");
 		
 		// how big is the group?

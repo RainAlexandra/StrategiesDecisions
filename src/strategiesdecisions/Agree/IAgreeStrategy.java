@@ -1,5 +1,6 @@
 package strategiesdecisions.Agree;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -9,5 +10,5 @@ import strategiesdecisions.communication.ICommunication;
  * @version 0.1
  */
 public interface IAgreeStrategy {
-	public void executer(ICommunication comm);
+	public void executer(ICommunication comm, OCService service);
 }

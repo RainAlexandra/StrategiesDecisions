@@ -3,8 +3,10 @@ package strategiesdecisions.Select;
 import java.util.ArrayList;
 import java.util.List;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.BindingMessage;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.Message.SelectionMessage;
 import strategiesdecisions.communication.ICommunication;
 
@@ -18,11 +20,11 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class DeferredSelect implements ISelectStrategy {
 
-	private String agent;
-	private List<MessageAgent> responses;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> responses;
 	private int dt;
 	
-	public DeferredSelect(String agent,ArrayList<MessageAgent> responses, int dt) {
+	public DeferredSelect(ReferenceAgent agent, ArrayList<MessageAgent> responses, int dt) {
 		this.agent = agent;
 		this.responses = responses;
 		this.dt = dt;
@@ -33,7 +35,7 @@ public class DeferredSelect implements ISelectStrategy {
 	}
 	
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("deferred-Select");
 		
 		while (dt > 0){
@@ -42,14 +44,17 @@ public class DeferredSelect implements ISelectStrategy {
 			dt--;
 		}
 		
-//		String bestReply = best(replies);
-//		String bestTransmitter = bestReply.getTransmitter();
-		String bestTransmitter = "Y"; // to remove
-		String refBinder = "Binder agent"; // to remove
+//		MessageAgent bestReply = best(responses);
+		MessageAgent bestReply = responses.get(0); // to remove
+		ReferenceAgent bestTransmitter = bestReply.getExpediteur();
+		ReferenceAgent refBinder = new ReferenceAgent(); // to remove
 		
 //		the binder will be created and initialized with the service of the advertising agent
-		MessageAgent binding = new BindingMessage(agent, refBinder, "serviceRef_" + agent, "this is a binding request", 0);
-		MessageAgent selection = new SelectionMessage(agent, bestTransmitter, "Binder agent", "this is a selection message", 0);
+		MessageAgent binding = new BindingMessage("", "", "", "", 0);
+		
+		ArrayList<ReferenceAgent> recipient = new ArrayList<>();
+		recipient.add(bestTransmitter);
+		MessageAgent selection = new SelectionMessage(service, agent, recipient);
 
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(selection);

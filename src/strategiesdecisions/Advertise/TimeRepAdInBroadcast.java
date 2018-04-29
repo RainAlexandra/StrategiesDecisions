@@ -1,7 +1,9 @@
 package strategiesdecisions.Advertise;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.AdMessage;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -12,24 +14,26 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class TimeRepAdInBroadcast implements IAdvertiseStrategy {
 
-	private String agent;
+	private ReferenceAgent agent;
 	private int dt;
 		
-	public TimeRepAdInBroadcast(String agent, int dt) {
+	public TimeRepAdInBroadcast(ReferenceAgent agent, int dt) {
 		this.agent = agent;
 		this.dt = dt;
 	}
 
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("time-Repeated-Ad-In-Broadcast");
 		
-		MessageAgent ad = new AdMessage(agent, "this is an adevertisement", 0);
+		MessageAgent ad = new AdMessage(service, agent, null); // the recipient list is null since this is a broadcast ad
 		comm.diffuserMessage(ad);
+		
 		while (dt > 0){
 			dt--;
 			// S <- S - SAD
 		}
+				
 		// S <- S
 	}
 }

@@ -20,11 +20,10 @@ public class SingleAdInBroadcast implements IAdvertiseStrategy {
 		this.agent = agent;
 	}
 
-
 	@Override
 	public void executer(ICommunication comm, OCService service) {
 		System.out.println("single-Ad-In-Broadcast");
-		MessageAgent ad = new AdMessage(service, agent, null ); // la liste des déstinataires est == null car en braodcast
+		MessageAgent ad = new AdMessage(service, agent, null); // la liste des déstinataires est == null car en braodcast
 		comm.diffuserMessage(ad);
 		// S <- S - SAD
 		

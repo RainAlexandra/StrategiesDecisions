@@ -1,8 +1,8 @@
 package strategiesdecisions.Reply;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.*;
 import strategiesdecisions.communication.ICommunication;
 
@@ -14,27 +14,28 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class NonBlockingIndvImmReply implements IReplyStrategy {
 	
-	private String agent;
-	List<MessageAgent> ads;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> ads;
 	
-	public NonBlockingIndvImmReply(String agent, ArrayList<MessageAgent> ads) {
+	public NonBlockingIndvImmReply(ReferenceAgent agent, ArrayList<MessageAgent> ads) {
 		this.agent = agent;
 		this.ads = ads;
 	}
 	
-	public void setAds(List<MessageAgent> ads){
+	public void setAds(ArrayList<MessageAgent> ads){
 		this.ads = ads;
 	}
 
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("non-Blocking-Targeted-Immediate-Response");
+		
 //		Message bestAd = best(ads);
 		MessageAgent bestAd = ads.get(0); // to remove
-		String bestTransmitter = bestAd.getTransmitter();
+		ArrayList<ReferenceAgent> bestTransmitter = new ArrayList<>();
+		bestTransmitter.add(bestAd.getExpediteur());
 		
-		MessageAgent reply = new ResponseMessage(agent, bestTransmitter, "this is a reply message", 0);
-		
+		MessageAgent reply = new ResponseMessage(service, agent, bestTransmitter);		
 		comm.envoyerMessage(reply);
 		
 		// S <- S

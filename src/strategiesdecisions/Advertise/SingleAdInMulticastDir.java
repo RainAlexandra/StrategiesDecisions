@@ -2,6 +2,8 @@ package strategiesdecisions.Advertise;
 
 import java.util.ArrayList;
 
+import OCPlateforme.OCService;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -13,10 +15,10 @@ import strategiesdecisions.communication.ICommunication;
 // TODO look over SA2.5 strategy description
 public class SingleAdInMulticastDir implements IAdvertiseStrategy {
 	
-	private String agent;
-	private ArrayList<String> directory;
+	private ReferenceAgent agent;
+	private ArrayList<ReferenceAgent> directory;
 	
-	public SingleAdInMulticastDir(String agent, ArrayList<String> directory) {
+	public SingleAdInMulticastDir(ReferenceAgent agent, ArrayList<ReferenceAgent> directory) {
 		this.agent = agent;
 		this.directory = directory;
 	}
@@ -24,7 +26,7 @@ public class SingleAdInMulticastDir implements IAdvertiseStrategy {
 	
 
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("single-Ad-In-Multicast-Directory");
 	}
 }

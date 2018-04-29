@@ -1,9 +1,12 @@
 package strategiesdecisions.Advertise;
 
-import java.util.List;
+import java.util.ArrayList;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Utility;
+import strategiesdecisions.Message.AdMessage;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -15,22 +18,25 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class TimeEvtRepAdInBroadcast implements IAdvertiseStrategy {
 
-	private String agent;
+	private ReferenceAgent agent;
 	private int dt;
 	
-	public TimeEvtRepAdInBroadcast(String agent, int dt){
+	public TimeEvtRepAdInBroadcast(ReferenceAgent agent, int dt){
 		this.agent = agent;
 		this.dt = dt;
 	}
 	
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("time-Event-Repeated-Ad-In-Broadcast");
+		
+		MessageAgent ad = new AdMessage(service, agent, null); // the recipient list is null since this is a broadcast ad
+		comm.diffuserMessage(ad);
 		
 		boolean event = false;
 		do {
-			// List<Message> msgs = agent.getReceivedMsgs();
-			List<MessageAgent> msgs = null; // to remove
+			// ArrayList<Message> msgs = agent.getReceivedMsgs();
+			ArrayList<MessageAgent> msgs = null; // to remove
 			event = Utility.findEvent(msgs);
 			dt--;
 			

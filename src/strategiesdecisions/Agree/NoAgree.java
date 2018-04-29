@@ -1,5 +1,6 @@
 package strategiesdecisions.Agree;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -11,5 +12,7 @@ import strategiesdecisions.communication.ICommunication;
 public class NoAgree implements IAgreeStrategy {
 	
 	@Override
-	public void executer(ICommunication comm){}
+	public void executer(ICommunication comm, OCService service){
+		System.out.println("This is a No Agree strategy");
+	}
 }

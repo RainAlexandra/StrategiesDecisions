@@ -1,5 +1,6 @@
 package strategiesdecisions.Reply;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.communication.ICommunication;
 
 /**
@@ -10,5 +11,7 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class NoReply implements IReplyStrategy {
 	@Override
-	public void executer(ICommunication comm){}
+	public void executer(ICommunication comm, OCService service){
+		System.out.println("This is No Reply Strategy!");
+	}
 }

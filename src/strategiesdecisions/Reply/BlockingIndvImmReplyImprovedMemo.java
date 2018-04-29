@@ -1,9 +1,10 @@
 package strategiesdecisions.Reply;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.Message.ResponseMessage;
 import strategiesdecisions.communication.ICommunication;
 
@@ -16,28 +17,28 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class BlockingIndvImmReplyImprovedMemo implements IReplyStrategy {
 
-	private String agent;
-	private List<MessageAgent> ads;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> ads;
 	
-	public BlockingIndvImmReplyImprovedMemo(String agent, LinkedList<MessageAgent> ads) {
+	public BlockingIndvImmReplyImprovedMemo(ReferenceAgent agent, ArrayList<MessageAgent> ads) {
 		this.agent = agent;
 		this.ads = ads;
 	}
 		
-	public void setAds(List<MessageAgent> ads) {
+	public void setAds(ArrayList<MessageAgent> ads) {
 		this.ads = ads;
 	}
 
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("blocking-Targeted-Immediate-Response-Improved-Memorization");
 	
-//		Message bestAd = best(ads);
-//		String bestTransmitter = bestAd.getTransmitter();
-		String bestTransmitter = "X";
+//		MessageAgent bestAd = best(ads);
+		MessageAgent bestAd = ads.get(0); // to remove
+		ArrayList<ReferenceAgent> bestTransmitter = new ArrayList<>();
+		bestTransmitter.add(bestAd.getExpediteur());
 		
-		MessageAgent reply = new ResponseMessage(agent, bestTransmitter, "this is a reply message", 0);
-		
+		MessageAgent reply = new ResponseMessage(service, agent, bestTransmitter);
 		comm.envoyerMessage(reply);
 		
 		// se bloquer et stocker toute annonce interessante (fonction F)

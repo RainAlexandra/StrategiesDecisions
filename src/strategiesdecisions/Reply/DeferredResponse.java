@@ -1,8 +1,10 @@
 package strategiesdecisions.Reply;
 
-import java.util.List;
+import java.util.ArrayList;
 
+import OCPlateforme.OCService;
 import strategiesdecisions.Message.MessageAgent;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.Message.ResponseMessage;
 import strategiesdecisions.communication.ICommunication;
 
@@ -15,37 +17,36 @@ import strategiesdecisions.communication.ICommunication;
  */
 public class DeferredResponse implements IReplyStrategy {
 	
-	private String agent;
-	private List<MessageAgent> ads;
+	private ReferenceAgent agent;
+	private ArrayList<MessageAgent> ads;
 	private int dt;
 	
-	public DeferredResponse(String agent, List<MessageAgent> ads, int dt) {
+	public DeferredResponse(ReferenceAgent agent, ArrayList<MessageAgent> ads, int dt) {
 		this.agent = agent;
 		this.ads = ads;
 		this.dt = dt;
 	}
 
-	public void setAds(List<MessageAgent> ads) {
+	public void setAds(ArrayList<MessageAgent> ads) {
 		this.ads = ads;
 	}
 
 	@Override
-	public void executer(ICommunication comm){
+	public void executer(ICommunication comm, OCService service){
 		System.out.println("deferred-Response");
 	
 		while (dt > 0){
-			(new NoReply()).executer(comm); // on ne fait rien
 			// ads <- ads U {a} pour toute annonce a
 			// S <- S - SRP
 			dt--;
 		}
 		
-//		Message bestAd = best(ads);
-//		String bestTransmitter = bestAd.getTransmitter();
-		String bestTransmitter = "X"; // to remove
+//		MessageAgent bestAd = best(ads);
+		MessageAgent bestAd = ads.get(0); // to remove
+		ArrayList<ReferenceAgent> bestTransmitter = new ArrayList<>();
+		bestTransmitter.add(bestAd.getExpediteur());
 		
-		MessageAgent reply = new ResponseMessage(agent, bestTransmitter, "this is a reply message", 0);
-		
+		MessageAgent reply = new ResponseMessage(service, agent, bestTransmitter);
 		comm.envoyerMessage(reply);
 		
 		// S <- S

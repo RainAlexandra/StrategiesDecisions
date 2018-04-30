@@ -6,6 +6,7 @@ import java.util.TreeSet;
 
 import strategiesdecisions.Message.MessageAgent;
 import strategiesdecisions.Message.MessageType;
+import strategiesdecisions.Message.ReferenceAgent;
 
 /**
  * <b>SW2.2</b> - SN XOR SW1.1 XOR SW1.2 (with a length of time "Dt")
@@ -14,11 +15,11 @@ import strategiesdecisions.Message.MessageType;
  */
 public class TimeLimitWait implements IWaitStrategy {
 
-	private String agent;
+	private ReferenceAgent agent;
 	private Map<MessageType, TreeSet<MessageAgent>> messages = new EnumMap<>(MessageType.class);
 	private int dt;
 	
-	public TimeLimitWait(String agent, int dt) {
+	public TimeLimitWait(ReferenceAgent agent, int dt) {
 		this.agent = agent;
 		this.dt = dt;
 	}

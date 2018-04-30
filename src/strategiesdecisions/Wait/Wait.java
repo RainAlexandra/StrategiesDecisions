@@ -18,10 +18,10 @@ import java.util.Set;
  */
 public class Wait implements IWaitStrategy {
 	
-	private String agent;
+	private ReferenceAgent agent;
 	private Map<MessageType, TreeSet<MessageAgent>> messages = new EnumMap<>(MessageType.class);
 	
-	public Wait(String agent){
+	public Wait(ReferenceAgent agent){
 		this.agent = agent;
 		messages.put(MessageType.AD, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.RESPONSE, new TreeSet<>(new MessageComparator()));

@@ -8,6 +8,7 @@ import java.util.TreeSet;
 import strategiesdecisions.Utility;
 import strategiesdecisions.Message.MessageAgent;
 import strategiesdecisions.Message.MessageType;
+import strategiesdecisions.Message.ReferenceAgent;
 
 /**
  * <b>SW2.1</b> - SN XOR SW1.1 XOR SW1.2
@@ -16,10 +17,10 @@ import strategiesdecisions.Message.MessageType;
  */
 public class EventWait implements IWaitStrategy {
 	
-	private String agent;
+	private ReferenceAgent agent;
 	private Map<MessageType, TreeSet<MessageAgent>> messages = new EnumMap<>(MessageType.class);
 	
-	public EventWait(String agent) {
+	public EventWait(ReferenceAgent agent) {
 		this.agent = agent;
 	}
 	

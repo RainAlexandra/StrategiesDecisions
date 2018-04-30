@@ -8,6 +8,7 @@ import java.util.TreeSet;
 import strategiesdecisions.Utility;
 import strategiesdecisions.Message.MessageAgent;
 import strategiesdecisions.Message.MessageType;
+import strategiesdecisions.Message.ReferenceAgent;
 
 /**
  * <b>SW2.3</b> - Combination between SW2.1 and SW2.2
@@ -16,11 +17,11 @@ import strategiesdecisions.Message.MessageType;
  */
 public class TimeEventLimitWait implements IWaitStrategy {
 
-	private String agent;
+	private ReferenceAgent agent;
 	private Map<MessageType, TreeSet<MessageAgent>> messages = new EnumMap<>(MessageType.class);
 	private int dt;
 	
-	public TimeEventLimitWait(String agent, int dt) {
+	public TimeEventLimitWait(ReferenceAgent agent, int dt) {
 		this.agent = agent;
 		this.dt = dt;
 	}

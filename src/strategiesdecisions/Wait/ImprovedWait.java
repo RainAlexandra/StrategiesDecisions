@@ -10,6 +10,7 @@ import java.util.TreeSet;
 import strategiesdecisions.Message.AdMessage;
 import strategiesdecisions.Message.MessageAgent;
 import strategiesdecisions.Message.MessageType;
+import strategiesdecisions.Message.ReferenceAgent;
 import strategiesdecisions.Message.ResponseMessage;
 
 /**
@@ -20,10 +21,10 @@ import strategiesdecisions.Message.ResponseMessage;
  */
 public class ImprovedWait implements IWaitStrategy {
 	
-	private String agent;
+	private ReferenceAgent agent;
 	private Map<MessageType, TreeSet<MessageAgent>> messages = new EnumMap<>(MessageType.class);
 	
-	public ImprovedWait(String agent){
+	public ImprovedWait(ReferenceAgent agent){
 		this.agent = agent;
 		messages.put(MessageType.AD, new TreeSet<>(new MessageComparator()));
 		messages.put(MessageType.RESPONSE, new TreeSet<>(new MessageComparator()));

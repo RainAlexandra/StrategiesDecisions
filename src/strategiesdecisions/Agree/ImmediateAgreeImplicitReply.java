@@ -1,7 +1,6 @@
 package strategiesdecisions.Agree;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import OCPlateforme.OCService;
 import strategiesdecisions.Message.BindingMessage;

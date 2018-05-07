@@ -3,12 +3,8 @@ package strategiesdecisions.communication;
 import java.util.List;
 import java.util.Optional;
 
-import strategiesdecisions.Message.BindingMessage;
 import strategiesdecisions.Message.IMessageAgent;
-import strategiesdecisions.Message.MessageAgent;
-import strategiesdecisions.Message.MessageType;
 import strategiesdecisions.Message.ReferenceAgent;
-import strategiesdecisions.Message.SelectionMessage;
 
 /**
  * Allows the receipt and transmission of messages communicated between agents

@@ -1,7 +1,6 @@
 package strategiesdecisions.Select;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import OCPlateforme.OCService;
 import strategiesdecisions.Message.BindingMessage;
@@ -54,7 +53,7 @@ public class DeferredSelect implements ISelectStrategy {
 		
 		ArrayList<ReferenceAgent> recipient = new ArrayList<>();
 		recipient.add(bestTransmitter);
-		MessageAgent selection = new SelectionMessage(service, agent, recipient);
+		MessageAgent selection = new SelectionMessage(service, agent, refBinder, recipient);
 
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(selection);

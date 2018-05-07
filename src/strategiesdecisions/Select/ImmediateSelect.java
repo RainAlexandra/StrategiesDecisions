@@ -1,7 +1,5 @@
 package strategiesdecisions.Select;
 
-import java.util.List;
-
 import OCPlateforme.OCService;
 
 import java.util.ArrayList;
@@ -43,7 +41,7 @@ public class ImmediateSelect implements ISelectStrategy {
 		
 		ArrayList<ReferenceAgent> recipient = new ArrayList<>();
 		recipient.add(bestTransmitter);
-		MessageAgent selection = new SelectionMessage(service, agent, recipient);
+		MessageAgent selection = new SelectionMessage(service, agent, refBinder, recipient);
 
 		comm.envoyerMessage(binding);
 		comm.envoyerMessage(selection);

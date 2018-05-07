@@ -16,10 +16,11 @@ public class SelectionMessage extends MessageAgent {
      * @param destinataires
      * 		les references des agents destinataires. Si == Null, alors diffusion en Broadcast
      */
-    public SelectionMessage(OCService service, ReferenceAgent expediteur, ArrayList<ReferenceAgent> destinataires) {
+    public SelectionMessage(OCService service, ReferenceAgent expediteur, ReferenceAgent agentBinder, ArrayList<ReferenceAgent> destinataires) {
         this.expediteur = expediteur;
         this.destinataires = destinataires;
         this.service = service;
+        this.agentBinder = agentBinder;
     }
 
     public void setAgentBinder(ReferenceAgent agentBinder) {
